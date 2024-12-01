@@ -42,3 +42,10 @@ header {
 .btnimg {
   width: 100px;
 }
+
+/* dont modify above code is part of template */
+
+.leftPane{
+  font-size: 2rem;
+  text-align: center;
+}
