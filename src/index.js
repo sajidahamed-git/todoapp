@@ -1,23 +1,34 @@
-import "./styles.css"
-console.log('test succefulll');
-
-console.log('ping pong');
-
-const temp = document.querySelector('.xxyy')
-console.log(temp);
+import "./styles.css";
+import { appendTodolist } from "./appendTodolist";
 
 
-function run(){
-    console.log('runnig fast');
-    dialog.showModal()
-}
+const tasks = [
+    {
+        id: 1,
+        title: "Buy groceries",
+        dueDate: "06-12-2024",
+        completed: false,
+        projectId: 1, // Links to a project if applicable
+    },
+    {
+        id: 2,
+        title: "Call the plumber",
+        dueDate: "12-12-2012",
+        completed: true,
+        projectId: null, // No project assigned
+    },
+];
+const projects = [
+    {
+        id: 1,
+        name: "Personal",
+    },
+    {
+        id: 2,
+        name: "Work",
+    },
+];
+console.log(tasks[0]);
 
-const addbutton = document.querySelector('.addbutton')
-
-addbutton.addEventListener('click',run)
-
-const dialog = document.querySelector("dialog")
-
-const submit = document.querySelector('.submit')
-submit.addEventListener('click', run)
-
+const addnewbtn = document.querySelector('.addbutton')
+addnewbtn.addEventListener('click',()=>appendTodolist(tasks[1]))
