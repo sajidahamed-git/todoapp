@@ -1,29 +1,100 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>To-Do App</title>
-  </head>
-  <body>
-    <header class="font-mono text-5xl">To-Do App</header>
-    <div>
-      <div>
-        <div>
-          <h3>Home</h3>
-          <div>
-            <img src="./assets/inbox.png">
-            <div class="text">All Tasks</div>
-          </div>
-          <div >Today</div>
-          <div>This week</div>
-          <div>important</div>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>To-Do App</title>
+    </head>
+    <body class="h-screen">
+        <header class="margin h-[10%] bg-blue-400 pt-4 text-center text-2xl">
+            To-Do App
+        </header>
+        <div class="main flex h-[90%] flex-col sm:flex-row">
+            <div class="leftPane grow border-r-4 border-cyan-800 sm:w-1/5">
+                <div
+                    class="home m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
+                >
+                    Home
+                </div>
+                <div class="today flex items-center p-4">
+                    <div class="img">
+                        <img class="w-8" src="./assets/inbox.png" alt="Today" />
+                    </div>
+                    <div class="text pl-2">Today</div>
+                </div>
+                <div class="thisweek flex items-center p-4">
+                    <div class="img w-8">
+                        <img src="https://placehold.jp/32x32.png" alt="" />
+                    </div>
+                    <div class="text pl-2">This Week</div>
+                </div>
+                <div
+                    class="projects m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
+                >
+                    Projects
+                </div>
+                <div class="addproject flex items-center p-4">
+                    <div class="img w-8">
+                        <img src="https://placehold.jp/32x32.png" alt="" />
+                    </div>
+                    <div class="text pl-2">Add New project</div>
+                </div>
+            </div>
+            <div class="rightPane grow-[4] sm:w-3/5">
+                <div class="notesContainer p-4 text-2xl">
+                    Your Notes
+                    <div
+                        class="notes mt-4 flex justify-between border-2 bg-slate-200 pl-16"
+                    >
+                        <div class="text">Hello</div>
+                        <button class="xxyy">
+                            <img src="./assets/trash.svg" alt="" />
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="buttonPane grow self-end  pr-8 pt-8 sm:w-1/5 sm:pb-16">
+                <button><img class="w-20 addbutton" src="./assets/add-post.png" alt="" /></button>
+            </div>
         </div>
-      </div>
-      <div class="rightPane">your notes go here</div>
-      <button class="addNewBtn">
-        <img class="btnimg" src="/src/assets/add-post.png" alt="" />
-      </button>
-    </div>
-  </body>
+
+        <dialog id="newNoteDialog" class="p-4 border border-gray-300 sm:w-1/4 rounded-lg backdrop:bg-sky-100">
+          <form method="dialog" class="flex flex-col gap-4">
+            <h2 class="text-xl font-semibold">Create New Note</h2>
+            
+            <label>
+              <span class="block text-sm font-medium">Title</span>
+              <input type="textarea" name="title" placeholder="Note title" class="border border-gray-300 p-2 rounded w-full" required />
+            </label>
+            
+            <label>
+              <span class="block text-sm font-medium">Description</span>
+              <!-- <input type="text" name="Description" placeholder="Note Description" class="border border-gray-300 p-2 rounded w-full" required /> -->
+              <textarea name="note Description" rows="3" cols="40" id=""></textarea>
+            </label>
+            
+            <label>
+              <span class="block text-sm font-medium">Due Date</span>
+              <input type="date" name="dueDate" class="border border-gray-300 p-2 rounded w-full" required />
+            </label>
+            
+            <label>
+              <span class="block text-sm font-medium">Add to Project</span>
+              <select name="project" class="border border-gray-300 p-2 rounded w-full">
+                <option value="" selected>None</option>
+                <option value="project1">Project 1</option>
+                <option value="project2">Project 2</option>
+              </select>
+            </label>
+            
+            <div class="flex justify-end gap-2">
+              <button type="button" class="px-4 py-2 bg-gray-200 rounded" onclick="document.getElementById('newNoteDialog').close()">Cancel</button>
+              <button type="submit" class="submit px-4 py-2 bg-blue-500 text-white rounded">Save</button>
+            </div>
+          </form>
+        </dialog>
+        
+        <button onclick="document.getElementById('newNoteDialog').showModal()" class="px-4 py-2 bg-green-500 text-white rounded">New Note</button>
+        
+    </body>
 </html>
