@@ -43,7 +43,7 @@
             <div class="rightPane grow-[4] sm:w-3/5">
                 <div class="notesContainer p-4 text-xl">
                     Your To-Do List
-                    <div
+                    <!-- <div
                         class="notes mt-4 flex justify-between border-2 bg-slate-200 p-4"
                     >
                         <input type="checkbox" class="w-6" />
@@ -58,13 +58,13 @@
                         <button>
                             <img src="./assets/trash.svg" alt="" />
                         </button>
-                    </div>
+                    </div> -->
                 </div>
             </div>
             <div class="buttonPane grow self-end pr-8 pt-8 sm:w-1/5 sm:pb-16">
-                <button>
+                <button class="addNewBtn">
                     <img
-                        class="addbutton w-20"
+                        class="w-20"
                         src="./assets/add-post.png"
                         alt=""
                     />
@@ -73,11 +73,11 @@
         </div>
 
         <dialog
-            id="newNoteDialog"
+            id="newTaskDialog"
             class="rounded-lg border border-gray-300 p-4 backdrop:bg-sky-100 sm:w-1/4"
         >
             <form method="dialog" class="flex flex-col gap-4">
-                <h2 class="text-xl font-semibold">Create New Note</h2>
+                <h2 class="text-xl font-semibold">Create New Task</h2>
 
                 <label>
                     <span class="block text-sm font-medium">Title</span>
@@ -129,7 +129,8 @@
                     <button
                         type="button"
                         class="rounded bg-gray-200 px-4 py-2"
-                        onclick="document.getElementById('newNoteDialog').close()"
+                        id="Cancel"
+                        
                     >
                         Cancel
                     </button>
@@ -143,11 +144,6 @@
             </form>
         </dialog>
 
-        <button
-            onclick="document.getElementById('newNoteDialog').showModal()"
-            class="rounded bg-green-500 px-4 py-2 text-white"
-        >
-            New Note
-        </button>
+     
     </body>
 </html>
