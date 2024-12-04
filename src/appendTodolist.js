@@ -48,6 +48,13 @@ export function appendTodolist(tasks) {
     );
 
     const delbtn = document.createElement("button");
+    delbtn.classList.add('deletebtn')
+    delbtn.addEventListener('click',function(event){
+        todoElement.remove()
+        console.log('dfjfkdfjkdjfkjkfdkjfk');
+        //function to remove task from array
+    })
+
     const icon = document.createElement("img");
     icon.src = trashIcon;
     delbtn.appendChild(icon)

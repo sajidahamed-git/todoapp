@@ -76,12 +76,13 @@
             id="newTaskDialog"
             class="rounded-lg border border-gray-300 p-4 backdrop:bg-sky-100 sm:w-1/4"
         >
-            <form method="dialog" class="flex flex-col gap-4">
+            <form method="dialog" class="flex flex-col gap-4" id="taskform">
                 <h2 class="text-xl font-semibold">Create New Task</h2>
 
                 <label>
                     <span class="block text-sm font-medium">Title</span>
                     <input
+                        id="taskTitle"
                         type="textarea"
                         name="title"
                         placeholder="Note title"
@@ -94,10 +95,10 @@
                     <span class="block text-sm font-medium">Description</span>
                     <!-- <input type="text" name="Description" placeholder="Note Description" class="border border-gray-300 p-2 rounded w-full" required /> -->
                     <textarea
-                        name="note Description"
+                        name="Task Description"
                         rows="3"
                         cols="40"
-                        id=""
+                        id="taskDescription"
                     ></textarea>
                 </label>
 
@@ -105,8 +106,9 @@
                     <span class="block text-sm font-medium">Due Date</span>
                     <input
                         type="date"
-                        name="dueDate"
+                        name="taskdueDate"
                         class="w-full rounded border border-gray-300 p-2"
+                        id="taskDueDate"
                         required
                     />
                 </label>
