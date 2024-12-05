@@ -1,5 +1,9 @@
 import trashIcon from "./assets/trash.svg";
-export function appendTodolist(tasks) {
+
+
+import { addDeleteButtonListener } from "./eventlisteners";
+export function appendTodolist(taskObject) {
+    //todo element represents individual notes
     const todoElement = document.createElement("div");
     todoElement.classList.add(
         "notes",
@@ -14,16 +18,15 @@ export function appendTodolist(tasks) {
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
     checkbox.classList.add("w-6", "h-6");
-    // todoElement.appendChild(checkbox);
 
     const title = document.createElement("div");
-    title.textContent = tasks.title;
+    title.textContent =taskObject.title;
 
     
     const dueDate = document.createElement("div");
-    dueDate.textContent = tasks.dueDate;
+    dueDate.textContent =taskObject.dueDate;
     
-    
+    //leftside has the checkbox title and duedate
     const leftside = document.createElement('div')
     leftside.appendChild(checkbox)
     leftside.appendChild(title)
@@ -47,18 +50,18 @@ export function appendTodolist(tasks) {
         "hover:bg-blue-600",
     );
 
+    
     const delbtn = document.createElement("button");
     delbtn.classList.add('deletebtn')
-    delbtn.addEventListener('click',function(event){
-        todoElement.remove()
-        console.log('dfjfkdfjkdjfkjkfdkjfk');
-        //function to remove task from array
-    })
-
+    
     const icon = document.createElement("img");
     icon.src = trashIcon;
     delbtn.appendChild(icon)
-
+    
+    //event listener is added to the delete button
+    addDeleteButtonListener(delbtn,taskObject.id)
+    
+    //rightside has details and deletet button
     const rightside = document.createElement('div')
     rightside.appendChild(details)
     rightside.appendChild(delbtn)
@@ -67,4 +70,6 @@ export function appendTodolist(tasks) {
 
     const notesContainer = document.querySelector(".notesContainer");
     notesContainer.appendChild(todoElement);
+
+// console.log(todoElement);
 }
