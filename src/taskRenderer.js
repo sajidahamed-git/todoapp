@@ -1,7 +1,6 @@
 import trashIcon from "./assets/trash.svg";
+import { addDeleteButtonListener } from "./taskEventlisteners";
 
-
-import { addDeleteButtonListener } from "./eventlisteners";
 export function appendTodolist(taskObject) {
     //todo element represents individual notes
     const todoElement = document.createElement("div");

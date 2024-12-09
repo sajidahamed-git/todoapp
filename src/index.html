@@ -9,7 +9,7 @@
         <header class="margin h-[10%] bg-blue-400 pt-4 text-center text-2xl">
             To-Do App
         </header>
-        <div class="main flex h-[90%] flex-col sm:flex-row">
+        <div class="main flex h-[90%] flex-col sm:flex-row bg-gray-600">
             <div class="leftPane grow border-r-4 border-cyan-800 sm:w-1/5">
                 <div
                     class="home m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
@@ -106,7 +106,6 @@
                         name="taskdueDate"
                         class="w-full rounded border border-gray-300 p-2"
                         id="taskDueDate"
-                        required
                     />
                 </label>
 
@@ -144,7 +143,7 @@
         <!-- new project popup -->
         <dialog
             id="newProjectDialog"
-            class="rounded-lg border border-gray-300 p-4 backdrop:bg-sky-100 sm:w-1/4"
+            class="rounded-lg border border-gray-300 p-4 backdrop:bg-sky-100 sm:w-1/4 "
         >
             <form method="dialog" class="flex flex-col gap-4" id="projectForm">
                 <h2 class="text-xl font-semibold">Create New project</h2>

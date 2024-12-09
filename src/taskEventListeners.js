@@ -1,7 +1,7 @@
-import { deleteButtonHandler, formHandling } from "./formHandling";
+import { deleteButtonHandler, formHandling } from "./taskManager";
 
 //initial eventlisteners to be loaded on screen
-export function eventlisteners() {
+export function taskEventListeners() {
     const popup = document.getElementById("newTaskDialog");
 
     const addNewBtn = document.querySelector(".addNewBtn");

@@ -1,10 +1,10 @@
 import "./styles.css";
-import { eventlisteners } from "./eventlisteners";
-import { appendTodolist } from "./appendTodolist";
+
+import { taskEventListeners } from "./taskEventlisteners";
 import { projectEventListeners } from "./projectEventListeners";
 
 //adds eventlisteners to the todolist 
-document.addEventListener("DOMContentLoaded", eventlisteners);
+document.addEventListener("DOMContentLoaded",taskEventListeners);
 
 document.addEventListener('DOMContentLoaded',projectEventListeners)
 

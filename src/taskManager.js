@@ -1,7 +1,8 @@
-import { appendTodolist } from "./appendTodolist";
-export let tasksArray = [];//constains all taskobjects
+import { appendTodolist } from "./taskRenderer";
 
-window.tasksArray = tasksArray; // Attach it to the global scope
+export let tasksArray = [];//constains all taskobjects
+const tempTasksArray = tasksArray
+window.tempTasksArray  = tempTasksArray
 
 export function formHandling() {
     const title = document.getElementById("taskTitle").value;
@@ -29,8 +30,8 @@ function createTaskObject(title, description, dueDate,projectId) {
 }
 
 export function deleteButtonHandler(button, taskId) {
-    console.log(taskId);
     tasksArray = tasksArray.filter((tasks) => tasks.id !== taskId);
+    console.log(tasksArray);
 
     const noteDiv = button.closest(".notes");
     if (noteDiv) {
