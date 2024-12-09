@@ -1,6 +1,6 @@
 import trashIcon from "./assets/trash.svg";
 import { addDeleteButtonListener } from "./taskEventlisteners";
-
+import { tasksArray } from "./taskManager";
 export function appendTodolist(taskObject) {
     //todo element represents individual notes
     const todoElement = document.createElement("div");
@@ -71,4 +71,17 @@ export function appendTodolist(taskObject) {
     notesContainer.appendChild(todoElement);
 
 // console.log(todoElement);
+}
+
+export function renderTasksByProjectId(projectId){
+    let filteredTasks = []
+
+    filteredTasks = tasksArray.filter((tasks)=> tasks.projectId === projectId)
+
+    console.log(filteredTasks);
+    filteredTasks.forEach(task => {
+        appendTodolist(task)
+    });
+
+
 }

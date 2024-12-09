@@ -1,4 +1,5 @@
 import { projectRenderer } from "./projectRenderer";
+import { renderTasksByProjectId } from "./taskRenderer";
 
 export function projectEventListeners() {
     const addNewproject = document.getElementById("addproject");
@@ -73,14 +74,14 @@ function createProjectObject(projectName) {
 //     projectContainer.appendChild(projectelement);
 //     projectDelbtnListener(delbtn,projectObject.id);
 // }
-export function projectDelbtnListener(delbtn, projectID) {
+export function projectDelbtnListener(delbtn, projectId) {
     delbtn.addEventListener("click", function () {
         const projDiv = delbtn.closest(".projectElement");
         if (projDiv) {
             projDiv.remove();
         }
         projectsArray = projectsArray.filter(
-            (projects) => projects.id !== projectID,
+            (projects) => projects.id !== projectId,
         );
     });
 }
@@ -108,10 +109,10 @@ function populateProjectsDropdown(projectsArray) {
         projectDropdown.appendChild(option);
     });
 }
-
-export function projectNameListener(projectName, projectID) {
+export function projectNameListener(projectName, projectId) {
     projectName.addEventListener("click", function () {
-        console.log(projectID);
+        console.log(projectId);
         //render all tasks with this project id 
+        renderTasksByProjectId(projectId)
     });
 }

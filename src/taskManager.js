@@ -8,7 +8,10 @@ export function formHandling() {
     const title = document.getElementById("taskTitle").value;
     const description = document.getElementById("taskDescription").value;
     const dueDate = document.getElementById("taskDueDate").value;
-    const selectedProjectId = document.querySelector('select[name="project"').value
+    const selectedProjectId_string = document.querySelector('select[name="project"').value
+
+    const selectedProjectId = parseInt(selectedProjectId_string)
+
 
     const taskObject = createTaskObject(title, description, dueDate,selectedProjectId);
 
