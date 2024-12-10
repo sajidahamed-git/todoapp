@@ -1,7 +1,9 @@
 import trashIcon from "./assets/trash.svg";
 import { addDeleteButtonListener } from "./taskEventlisteners";
 import { tasksArray } from "./taskManager";
-export function appendTodolist(taskObject) {
+
+    const notesContainer = document.querySelector(".notesContainer");
+export function renderTask(taskObject) {
     //todo element represents individual notes
     const todoElement = document.createElement("div");
     todoElement.classList.add(
@@ -67,21 +69,42 @@ export function appendTodolist(taskObject) {
     rightside.classList.add('flex','gap-4','w-2/5','justify-around')
     todoElement.appendChild(rightside)
 
-    const notesContainer = document.querySelector(".notesContainer");
     notesContainer.appendChild(todoElement);
 
 // console.log(todoElement);
 }
 
-export function renderTasksByProjectId(projectId){
+export function renderTasksByProjectId(projectName, projectId){
+    // console.log(projectName);
+    projectName = projectName.textContent
     let filteredTasks = []
+    notesContainer.innerHTML = ''
+    notesContainer.textContent = `Tasks from ${projectName} project`
 
     filteredTasks = tasksArray.filter((tasks)=> tasks.projectId === projectId)
 
-    console.log(filteredTasks);
+    // console.log(filteredTasks);
     filteredTasks.forEach(task => {
-        appendTodolist(task)
+        renderTask(task)
     });
 
 
+}
+
+export function renderAllTasks(){
+    notesContainer.innerHTML = ''
+    notesContainer.textContent = 'All Tasks'
+    tasksArray.forEach(task =>{
+        renderTask(task)
+    })
+
+}
+
+export function renderTodayTasks(){
+    console.log('today tasks');
+    tasksArray.forEach(task => {
+        console.log(task.dueDate);
+
+        console.log(typeof(task.dueDate));
+    });
 }

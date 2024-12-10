@@ -111,8 +111,8 @@ function populateProjectsDropdown(projectsArray) {
 }
 export function projectNameListener(projectName, projectId) {
     projectName.addEventListener("click", function () {
-        console.log(projectId);
+        // console.log(projectId);
         //render all tasks with this project id 
-        renderTasksByProjectId(projectId)
+        renderTasksByProjectId(projectName,projectId)
     });
 }

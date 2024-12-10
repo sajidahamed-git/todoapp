@@ -1,4 +1,4 @@
-import { appendTodolist } from "./taskRenderer";
+import {  renderTask } from "./taskRenderer";
 
 export let tasksArray = [];//constains all taskobjects
 const tempTasksArray = tasksArray
@@ -17,7 +17,7 @@ export function formHandling() {
 
     tasksArray.push(taskObject);
     // console.log(tasksArray);
-    appendTodolist(taskObject);
+    renderTask(taskObject);
 }
 let taskIdCounter = 0;
 function createTaskObject(title, description, dueDate,projectId) {

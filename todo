@@ -1,8 +1,12 @@
-add addEventListener to every new project 
-created so that when clicked only tasks of that project are 
-displayed in the list and style the project as such to show
-that it is selected
+<!-- add addEventListener to every new project  -->
+<!-- created so that when clicked only tasks of that project are  -->
+<!-- displayed in the list and style the project as such to show -->
+<!-- that it is selected -->
 
+
+write logic for all tasks button which displays 
+all the tasks from TAsksArray after the user has filtered
+by projects
 
 
 display tasks which are only due today or this week 
