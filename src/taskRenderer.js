@@ -1,6 +1,7 @@
 import trashIcon from "./assets/trash.svg";
-import { addDeleteButtonListener } from "./taskEventlisteners";
 import { tasksArray } from "./taskManager";
+
+import { addDeleteButtonListener } from "./taskListener";
 
     const notesContainer = document.querySelector(".notesContainer");
 export function renderTask(taskObject) {
@@ -102,9 +103,5 @@ export function renderAllTasks(){
 
 export function renderTodayTasks(){
     console.log('today tasks');
-    tasksArray.forEach(task => {
-        console.log(task.dueDate);
 
-        console.log(typeof(task.dueDate));
-    });
 }

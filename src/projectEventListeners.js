@@ -2,6 +2,7 @@ import { projectRenderer } from "./projectRenderer";
 import { renderTasksByProjectId } from "./taskRenderer";
 
 export function projectEventListeners() {
+    console.log('mama');
     const addNewproject = document.getElementById("addproject");
     const projectpopup = document.getElementById("newProjectDialog");
 
