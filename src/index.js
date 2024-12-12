@@ -3,6 +3,7 @@ import "./styles.css";
 import { projectEventListeners } from "./projectEventListeners";
 import { taskListeners } from "./taskListener";
 import { renderAllProjects } from "./projectRenderer";
+import { renderAllTasks } from "./taskRenderer";
 
 //adds eventlisteners to the todolist
 document.addEventListener("DOMContentLoaded", taskListeners);
