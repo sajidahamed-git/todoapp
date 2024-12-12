@@ -2,6 +2,7 @@
 import trashIcon from "./assets/trash.svg";
 import { projectDelbtnListener } from "./projectEventListeners";
 import { projectNameListener } from "./projectEventListeners";
+import { projectsArray } from ".";
 export function projectRenderer(projectObject) {
     //project element is the individual element which contains each project
     const projectelement = document.createElement("div");
@@ -32,4 +33,10 @@ export function projectRenderer(projectObject) {
     projectContainer.appendChild(projectelement);
     projectNameListener(projectName,projectObject.id)
     projectDelbtnListener(delbtn,projectObject.id);
+}
+
+export function renderAllProjects(){
+    projectsArray.forEach(project => {
+        projectRenderer(project)
+    });
 }
