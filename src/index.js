@@ -2,7 +2,6 @@ import "./styles.css";
 
 import { projectEventListeners } from "./projectEventListeners";
 import { taskListeners } from "./taskListener";
-import { renderAllTasks, renderTask } from "./taskRenderer";
 import { renderAllProjects } from "./projectRenderer";
 
 //adds eventlisteners to the todolist
