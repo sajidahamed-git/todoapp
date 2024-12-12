@@ -1,9 +1,9 @@
 import {  renderTask } from "./taskRenderer";
+import { tasksArray ,updateTasksArray } from ".";
 
-export let tasksArray = [];//constains all taskobjects
-const tempTasksArray = tasksArray
-window.tempTasksArray  = tempTasksArray
 
+//  let tasksArray = intiTasksArray()
+// export let tasksArray = []
 export function formHandling() {
     const title = document.getElementById("taskTitle").value;
     const description = document.getElementById("taskDescription").value;
@@ -16,7 +16,7 @@ export function formHandling() {
     const taskObject = createTaskObject(title, description, dueDate,selectedProjectId);
 
     tasksArray.push(taskObject);
-    // console.log(tasksArray);
+    updateTasksArray(tasksArray)
     renderTask(taskObject);
 }
 let taskIdCounter = 0;
@@ -33,9 +33,8 @@ function createTaskObject(title, description, dueDate,projectId) {
 }
 
 export function deleteButtonHandler(button, taskId) {
-    tasksArray = tasksArray.filter((tasks) => tasks.id !== taskId);
-    console.log(tasksArray);
-
+    const filteredArray = tasksArray.filter((tasks) => tasks.id !== taskId);
+    updateTasksArray(filteredArray)
     const noteDiv = button.closest(".notes");
     if (noteDiv) {
         noteDiv.remove();

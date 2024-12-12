@@ -4,13 +4,15 @@
 <!-- that it is selected -->
 
 
-write logic for all tasks button which displays 
+<!-- write logic for all tasks button which displays 
 all the tasks from TAsksArray after the user has filtered
-by projects
+by projects -->
 
 
-display tasks which are only due today or this week 
-when clicked on the respective button on the home tab
+<!-- display tasks which are only due today or this week 
+when clicked on the respective button on the home tab -->
+
+local storage
 
 
 store all arrays in local storage and retrive them

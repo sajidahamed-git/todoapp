@@ -3,8 +3,7 @@ import { deleteButtonHandler } from "./taskManager";
 import { renderAllTasks } from "./taskRenderer";
 import { renderTodayTasks } from "./taskRenderer";
 
-export function demo(){
-    console.log('demo functino');
+export function taskListeners(){
     const popup = document.getElementById('newTaskDialog')
 
     const addNewBtn = document.querySelector('.addNewBtn')
