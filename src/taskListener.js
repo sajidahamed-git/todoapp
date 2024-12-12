@@ -2,6 +2,7 @@ import { formHandling } from "./taskManager";
 import { deleteButtonHandler } from "./taskManager";
 import { renderAllTasks } from "./taskRenderer";
 import { renderTodayTasks } from "./taskRenderer";
+import { renderThisweekTasks } from "./taskRenderer";
 
 export function taskListeners(){
     const popup = document.getElementById('newTaskDialog')
@@ -28,6 +29,9 @@ export function taskListeners(){
 
   const today = document.querySelector(".today button");
   today.addEventListener("click", renderTodayTasks);
+  
+  const thisweek = document.querySelector('.thisweek button')
+  thisweek.addEventListener('click',renderThisweekTasks)
   
 }
 

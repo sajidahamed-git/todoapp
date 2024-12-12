@@ -12,7 +12,7 @@ document.addEventListener("DOMContentLoaded", projectEventListeners);
 export let tasksArray = [];
 
 if (localStorage.getItem("tasksArray")) {
-  console.log(true);
+//   console.log(true);
 
   tasksArray = JSON.parse(localStorage.getItem("tasksArray"));
   renderAllTasks()
@@ -34,7 +34,7 @@ export function updateTasksArray(newArray){
 
 export let projectsArray = []
 if (localStorage.getItem('projectsArray')) {
-    console.log(true);
+    // console.log(true);
     projectsArray = JSON.parse(localStorage.getItem('projectsArray'))
     renderAllProjects()
 }else console.log('no projects found');
