@@ -12,7 +12,8 @@ by projects -->
 <!-- display tasks which are only due today or this week 
 when clicked on the respective button on the home tab -->
 
-local storage
+<!-- local storage -->
+time zone is GMT zero for tasks Due today 
 
 
 store all arrays in local storage and retrive them

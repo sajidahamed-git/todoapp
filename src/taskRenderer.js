@@ -105,7 +105,7 @@ export function renderTodayTasks() {
     notesContainer.textContent = 'Tasks Due Today'
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString().split("T")[0];
-  console.log("today tasks");
+
   tasksArray.forEach((task) => {
     if (task.dueDate === formattedDate) {
         renderTask(task)
