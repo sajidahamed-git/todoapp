@@ -3,33 +3,35 @@ import { renderTasksByProjectId } from "./taskRenderer";
 import { projectsArray, updateProjectsArray } from ".";
 
 export function projectEventListeners() {
-  //   const addNewproject = document.getElementById("addproject");
 
-  //   addNewproject.addEventListener("click", () => {
-  //     projectpopup.showModal();
-  //   });
-
-  //   const projectCancel = document.getElementById("projectCancel");
-  //   projectCancel.addEventListener("click", function () {
-  //     projectpopup.close();
-  //   });
-
-  //   const projectpopup = document.getElementById("newProjectDialog");
-  //   projectpopup.addEventListener("submit", projectFormhandling);
   const addProjectbtn = document.getElementById("addProjectbtn");
+  const projectNameInput = document.getElementById("projectName");
+  populateProjectsDropdown(projectsArray);
   addProjectbtn.addEventListener("click", () => {
-    const projectName = document.getElementById("projectName").value;
-    document.getElementById('projectName').value = ''
+    const projectName = projectNameInput.value.trim();
+    projectNameInput.value = "";
 
+    if (projectName === "") {
+      console.log("enter something");
+      projectNameInput.style.border = "2px solid red";
+      projectNameInput.classList.add('animate-shake')
+      // Remove the red border after 2 seconds
+      setTimeout(() => {
+          
+      projectNameInput.classList.remove('animate-shake')
+        projectNameInput.style.border = "";
+      }, 1000); // 1000 ms = 1 seconds
+
+      return;
+    }
     const projectObject = createProjectObject(projectName);
-    console.log(projectObject);
-    projectRenderer(projectObject)
+    projectRenderer(projectObject);
     projectsArray.push(projectObject);
-    populateProjectsDropdown(projectsArray)
-    updateProjectsArray(projectsArray)
+    updateProjectsArray(projectsArray);
   });
 }
-
+//save project counter in local storate to get correct 
+//project ids
 let projectCounter = 0;
 function createProjectObject(projectName) {
   return {
@@ -38,18 +40,7 @@ function createProjectObject(projectName) {
   };
 }
 
-// let projectsArray = [];
 
-// function projectFormhandling() {
-//   const projectName = document.getElementById("projectTitle").value;
-//   const projectObject = createProjectObject(projectName);
-//   projectsArray.push(projectObject);
-//   populateProjectsDropdown(projectsArray);
-//   // console.log(projectsArray);
-//   const temp = projectsArray;
-//   updateProjectsArray(temp);
-//   projectRenderer(projectObject);
-// }
 
 export function projectDelbtnListener(delbtn, projectId) {
   delbtn.addEventListener("click", function () {

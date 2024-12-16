@@ -20,6 +20,10 @@ i am thinking this can be done in index.js file -->
 notes functionality
 time zone is GMT zero for tasks Due today 
 
+
+//save project counter in local storate to get correct 
+//project ids
+
 todo after functionality is complete
 
 project names now cannot be too lenghty fix that
