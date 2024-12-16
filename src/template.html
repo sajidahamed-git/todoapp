@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="data:,">
     <title>To-Do App</title>
   </head>
   <body class="bg-gray-600">
@@ -10,7 +11,7 @@
       To-Do App
     </header>
     <div class="main flex h-[90%] flex-col sm:flex-row bg-gray-600">
-      <div class="leftPane grow border-r-4 border-cyan-800 sm:w-1/5">
+      <div class="leftPane grow border-r-4 border-cyan-800 sm:w-1/4">
         <div
           class="home m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
         >
@@ -43,8 +44,9 @@
         >
           <div class="gap-3 flex">
             <!--  add new project button ie first entry in project container -->
-            <img class="w-8" src="./assets/inbox.png"  alt="" />
-            <button id="addproject">Add New Project</button>
+            <input class="w-3/4" type="text" name="newProject" id="projectName" placeholder="Add new Project">
+            <button id="addProjectbtn"><img class="w-8" src="./assets/inbox.png"  alt="" /></button>
+            <!-- <button id="addproject">Add New Project</button> -->
           </div>
         </div>
       </div>

@@ -13,12 +13,12 @@ by projects -->
 when clicked on the respective button on the home tab -->
 
 <!-- local storage -->
+
+
+<!-- store all arrays in local storage and retrive them
+i am thinking this can be done in index.js file -->
+notes functionality
 time zone is GMT zero for tasks Due today 
-
-
-store all arrays in local storage and retrive them
-i am thinking this can be done in index.js file
-
 
 todo after functionality is complete
 
