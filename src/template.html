@@ -6,56 +6,57 @@
     <link rel="icon" href="data:,">
     <title>To-Do App</title>
   </head>
-  <body class="bg-gray-600 ">
-    <header class="margin h-[10%] bg-blue-400 pt-4 text-center text-2xl">
-      To-Do App
-    </header>
-    <div class="main flex h-[90%] flex-col sm:flex-row bg-gray-600">
-      <div class="leftPane grow border-r-4 border-cyan-800 sm:w-1/4">
-        <div
-          class="home m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
-        >
-          Home
-        </div>
-        <div class="allTasks flex items-center p-4">
-          <img class="w-8" src="assets/inbox.png" />
-          <div class="text pl-2"><button>All Tasks</button></div>
-        </div>
-        <div class="today flex items-center p-4">
-          <img class="w-8" src="assets/inbox.png" />
-          <div class="text pl-2"><button>Today</button></div>
-        </div>
-        <div class="thisweek flex items-center p-4 ">
-          <img class="w-8" src="./assets/inbox.png" alt="" />
-          <div class="text pl-2"><button>This Week</button></div>
-        </div>
-        <div class="notes flex items-center p-4">
-          <img class="w-8" src="./assets/inbox.png" alt="" />
-          <div class="text pl-2"><button>Notes</button></div>
-        </div>
-        <div
-          class="projects m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
-        >
-          Projects
-        </div>
-        <div
-          class="projectContainer flex flex-col items-center p-4 gap-4"
-          id="projectContainer"
-        >
-          <div class="gap-3 flex w-full">
-            <!--  add new project button ie first entry in project container -->
-            <input class="w-4/5" type="text" name="newProject" id="projectName" placeholder="Add new Project">
-            <button id="addProjectbtn"><img class="w-8" src="./assets/inbox.png"  alt="" /></button>
-            <!-- <button id="addproject">Add New Project</button> -->
+  <body class="bg-gray-600">
+    <div class="flexContainer flex flex-wrap">
+      <header class="w-full bg-blue-400 py-4 text-center text-2xl">
+        To-Do App
+      </header>
+        <div class="leftPane border-r-4 border-cyan-800 sm:w-1/4">
+          <div
+            class="home m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
+          >
+            Home
+          </div>
+          <div class="allTasks flex items-center p-4">
+            <img class="w-8" src="assets/inbox.png" />
+            <div class="text pl-2"><button>All Tasks</button></div>
+          </div>
+          <div class="today flex items-center p-4">
+            <img class="w-8" src="assets/inbox.png" />
+            <div class="text pl-2"><button>Today</button></div>
+          </div>
+          <div class="thisweek flex items-center p-4 ">
+            <img class="w-8" src="./assets/inbox.png" alt="" />
+            <div class="text pl-2"><button>This Week</button></div>
+          </div>
+          <div class="notes flex items-center p-4">
+            <img class="w-8" src="./assets/inbox.png" alt="" />
+            <div class="text pl-2"><button>Notes</button></div>
+          </div>
+          <div
+            class="projects m-4 border-b-4 border-solid border-blue-400 p-4 text-2xl"
+          >
+            Projects
+          </div>
+          <div
+            class="projectContainer flex flex-col items-center p-4 gap-4"
+            id="projectContainer"
+          >
+            <div class="gap-3 flex w-full">
+              <!--  add new project button ie first entry in project container -->
+              <input class="w-4/5" type="text" name="newProject" id="projectName" placeholder="Add new Project">
+              <button id="addProjectbtn"><img class="w-8" src="./assets/inbox.png"  alt="" /></button>
+              <!-- <button id="addproject">Add New Project</button> -->
+            </div>
           </div>
         </div>
-      </div>
-      <div class="rightPane grow-[4] sm:w-3/5">
-        <div class="notesContainer p-4 text-xl">
-        <!-- JS adds created notes here -->
+        <div class="rightPane sm:w-3/5">
+          <div class="notesContainer p-4 text-xl">
+          <!-- JS adds created notes here -->
+          </div>
         </div>
-      </div>
     </div>
+    
       <!-- add task button -->
       <div class="buttonPane fixed bottom-16 right-40">
         <button class="addNewBtn">
