@@ -9,11 +9,11 @@ export function projectRenderer(projectObject) {
     projectelement.classList.add(
         "projectElement",
         "flex",
-        "gap-3",
-        "border-4",
         "w-full",
+        
+        "border-2",
         "justify-between",
-        "px-4",
+        
     );
     projectelement.setAttribute('data-id',projectObject.id)
     const projectName = document.createElement("button");
