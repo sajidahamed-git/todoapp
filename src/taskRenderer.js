@@ -15,7 +15,10 @@ export function renderTask(taskObject) {
     "justify-between",
     "border-2",
     "bg-slate-200",
-    "p-4"
+    "p-4",
+    "rounded-lg",
+    "shadow-lg",
+    "border-gray-200"
   );
 
   const checkbox = document.createElement("input");
@@ -101,16 +104,15 @@ export function renderAllTasks() {
 }
 
 export function renderTodayTasks() {
-    notesContainer.innerHTML = ""
-    notesContainer.textContent = 'Tasks Due Today'
+  notesContainer.innerHTML = "";
+  notesContainer.textContent = "Tasks Due Today";
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString().split("T")[0];
 
   tasksArray.forEach((task) => {
     if (task.dueDate === formattedDate) {
-        renderTask(task)
+      renderTask(task);
     }
-   
   });
 }
 // export function renderThisweekTasks(){
@@ -129,30 +131,30 @@ export function renderTodayTasks() {
 
 //   // Render the tasks
 // console.log(tasksDueThisWeek);
-  
+
 // }
 export function renderThisweekTasks() {
-  notesContainer.innerHTML = ''; // Clear previous content
-  notesContainer.textContent = 'Tasks Due This Week'; // Set the heading
-  
+  notesContainer.innerHTML = ""; // Clear previous content
+  notesContainer.textContent = "Tasks Due This Week"; // Set the heading
+
   const currentDate = new Date(); // Get today's date
   const currentDay = currentDate.getDay(); // Get the current day of the week (0 = Sunday, 6 = Saturday)
-  
+
   // Calculate the number of days until the upcoming Friday
   const daysUntilFriday = (5 - currentDay + 7) % 7; // 5 is Friday, % 7 ensures we wrap around to the next Friday if today is Friday
-  
+
   // Set the date for this week's Friday
   const fridayDate = new Date(currentDate);
   fridayDate.setDate(currentDate.getDate() + daysUntilFriday);
-  
+
   // Format the calculated Friday date in YYYY-MM-DD
-  const formattedFridayDate = fridayDate.toISOString().split('T')[0];
-  
+  const formattedFridayDate = fridayDate.toISOString().split("T")[0];
+
   // Loop through tasksArray and check if each task is due before or on this week's Friday
   tasksArray.forEach((task) => {
-    if (task.dueDate <= formattedFridayDate) { // Directly compare task.dueDate with formattedFridayDate
+    if (task.dueDate <= formattedFridayDate) {
+      // Directly compare task.dueDate with formattedFridayDate
       renderTask(task); // Render the task
     }
   });
 }
-

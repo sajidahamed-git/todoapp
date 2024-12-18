@@ -4,10 +4,12 @@ import { projectEventListeners } from "./projectEventListeners";
 import { taskListeners } from "./taskListener";
 import { renderAllProjects } from "./projectRenderer";
 import { renderAllTasks } from "./taskRenderer";
+import { notesEventListeners } from "./notes";
 
 //adds eventlisteners to the todolist
 document.addEventListener("DOMContentLoaded", taskListeners);
 document.addEventListener("DOMContentLoaded", projectEventListeners);
+document.addEventListener('DOMContentLoaded',notesEventListeners)
 
 export let tasksArray = [];
 export function isArrayEmpty(arr) {
@@ -15,7 +17,6 @@ export function isArrayEmpty(arr) {
 }
 if (localStorage.getItem("tasksArray")) {
   tasksArray = JSON.parse(localStorage.getItem("tasksArray"));
-  console.log(isArrayEmpty(tasksArray));
   renderAllTasks();
 } else console.log("no tasks found");
 
