@@ -31,10 +31,13 @@ function createTaskObject(title, description, dueDate, projectId) {
     taskIdCounter = 0;
     console.log(taskIdCounter);
   } else {
-    taskIdCounter = localStorage.getItem("taskIdCounter", taskIdCounter);
+    const lastElement = tasksArray[tasksArray.length - 1]
+    console.log(lastElement.id);
+    taskIdCounter = lastElement.id + 1
+
   }
   let task = {
-    id: taskIdCounter++,
+    id: taskIdCounter,
     title: title,
     description: description,
     dueDate: dueDate,
@@ -42,6 +45,7 @@ function createTaskObject(title, description, dueDate, projectId) {
 
     completed: false,
   };
+  taskIdCounter++
   localStorage.setItem("taskIdCounter", taskIdCounter);
   return task;
 }
