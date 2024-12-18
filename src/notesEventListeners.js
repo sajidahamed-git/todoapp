@@ -1,3 +1,6 @@
+import { notesHandler } from "./notesHandler";
+
+
 export function notesEventListeners() {
   const notesHeading = document.querySelector(".notesContainer");
   const notesBtn = document.querySelector(".notes button");
@@ -38,6 +41,7 @@ export function notesEventListeners() {
     const noteTitle = document.createElement("input");
     noteTitle.placeholder = "Enter Note Title";
     noteTitle.classList.add(
+      "noteTitle",
       "w-full", // Makes the input field span the full width
       "p-2", // Adds padding inside the input
       "text-lg", // Sets a larger font size for the title
@@ -52,6 +56,7 @@ export function notesEventListeners() {
     const noteBody = document.createElement("textarea");
     noteBody.placeholder = "enter note contents";
     noteBody.classList.add(
+      "noteBody",
       "w-full", // Makes the textarea span the full width
       "p-2", // Adds padding inside the textarea
       "h-24", // Sets a default height for the textarea
@@ -94,7 +99,4 @@ export function notesEventListeners() {
 
 
   });
-}
-function notesHandler(){
-  console.log('dfdf');
 }

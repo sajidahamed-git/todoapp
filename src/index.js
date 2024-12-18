@@ -4,17 +4,16 @@ import { projectEventListeners } from "./projectEventListeners";
 import { taskListeners } from "./taskListener";
 import { renderAllProjects } from "./projectRenderer";
 import { renderAllTasks } from "./taskRenderer";
-import { notesEventListeners } from "./notes";
+import { notesEventListeners } from "./notesEventListeners";
 
-//adds eventlisteners to the todolist
 document.addEventListener("DOMContentLoaded", taskListeners);
 document.addEventListener("DOMContentLoaded", projectEventListeners);
 document.addEventListener('DOMContentLoaded',notesEventListeners)
 
-export let tasksArray = [];
 export function isArrayEmpty(arr) {
   return arr.length === 0;
 }
+export let tasksArray = [];
 if (localStorage.getItem("tasksArray")) {
   tasksArray = JSON.parse(localStorage.getItem("tasksArray"));
   renderAllTasks();
