@@ -1,12 +1,11 @@
 import { projectRenderer } from "./projectRenderer";
 import { renderTasksByProjectId } from "./taskRenderer";
-import { projectsArray, updateProjectsArray } from ".";
+import { isArrayEmpty, projectsArray, updateProjectsArray } from ".";
 
 export function projectEventListeners() {
-
   const addProjectbtn = document.getElementById("addProjectbtn");
   const projectNameInput = document.getElementById("projectName");
-  populateProjectsDropdown(projectsArray);
+  // populateProjectsDropdown(projectsArray);
   addProjectbtn.addEventListener("click", () => {
     const projectName = projectNameInput.value.trim();
     projectNameInput.value = "";
@@ -14,11 +13,10 @@ export function projectEventListeners() {
     if (projectName === "") {
       console.log("enter something");
       projectNameInput.style.border = "2px solid red";
-      projectNameInput.classList.add('animate-shake')
+      projectNameInput.classList.add("animate-shake");
       // Remove the red border after 2 seconds
       setTimeout(() => {
-          
-      projectNameInput.classList.remove('animate-shake')
+        projectNameInput.classList.remove("animate-shake");
         projectNameInput.style.border = "";
       }, 1000); // 1000 ms = 1 seconds
 
@@ -28,19 +26,28 @@ export function projectEventListeners() {
     projectRenderer(projectObject);
     projectsArray.push(projectObject);
     updateProjectsArray(projectsArray);
+    populateProjectsDropdown(projectsArray);
   });
 }
-//save project counter in local storate to get correct 
+//save project counter in local storate to get correct
 //project ids
 let projectCounter = 0;
 function createProjectObject(projectName) {
-  return {
-    id: projectCounter++,
+  if (isArrayEmpty(projectsArray)) {
+    projectCounter = 0;
+  } else {
+    const lastProjectElement = projectsArray[projectsArray.length - 1];
+    projectCounter = lastProjectElement.id + 1;
+  }
+  let project = {
+    id: projectCounter,
     title: projectName,
   };
+  projectCounter++;
+  localStorage.setItem("projectCounter", projectCounter);
+
+  return project;
 }
-
-
 
 export function projectDelbtnListener(delbtn, projectId) {
   delbtn.addEventListener("click", function () {
@@ -58,6 +65,7 @@ export function projectDelbtnListener(delbtn, projectId) {
 
 function populateProjectsDropdown(projectsArray) {
   // Select the dropdown
+  console.log("mango");
   const projectDropdown = document.querySelector('select[name="project"]');
 
   // Clear existing options

@@ -29,10 +29,8 @@ let taskIdCounter;
 function createTaskObject(title, description, dueDate, projectId) {
   if (isArrayEmpty(tasksArray)) {
     taskIdCounter = 0;
-    console.log(taskIdCounter);
   } else {
     const lastElement = tasksArray[tasksArray.length - 1]
-    console.log(lastElement.id);
     taskIdCounter = lastElement.id + 1
 
   }
