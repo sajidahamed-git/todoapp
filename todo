@@ -8,5 +8,5 @@ make the rendered projects button bigger - now it is only the size of the text -
 
 detailss popup 
 
-remove / hide the add tasks button when in notes view
+<!-- remove / hide the add tasks button when in notes view -->
 <!-- tasks title is aligned different if date is added  -->
