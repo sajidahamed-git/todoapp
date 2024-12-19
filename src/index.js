@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const notesBtn = document.querySelector(".notes button");
+const addtasksbtn = document.querySelector('.addNewBtn')
 notesBtn.addEventListener("click", () => {
   createNoteInputCard();
   if (localStorage.getItem("notesArray")) {
@@ -59,6 +60,7 @@ notesBtn.addEventListener("click", () => {
       });
     } else console.log("notes arr exists in local but is empty");
   } else console.log("notesarray does not exist in local");
+  addtasksbtn.classList.add('hidden')
 });
 
 export function isArrayEmpty(arr) {

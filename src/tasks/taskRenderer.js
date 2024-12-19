@@ -9,7 +9,7 @@ export function renderTask(taskObject) {
   //todo element represents individual notes
   const todoElement = document.createElement("div");
   todoElement.classList.add(
-    "notes",
+    
     "mt-4",
     "flex",
     "justify-between",
@@ -27,6 +27,7 @@ export function renderTask(taskObject) {
 
   const title = document.createElement("div");
   title.textContent = taskObject.title;
+  title.classList.add("text-left")
 
   const dueDate = document.createElement("div");
   dueDate.textContent = taskObject.dueDate;

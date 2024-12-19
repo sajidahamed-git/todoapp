@@ -1,5 +1,5 @@
 check due this week functionality -- tasks without any date are rendered in due this week
-
+add day in date for better readability
 ability to mark tasks complete
 
 add border to rendered notes
@@ -8,6 +8,5 @@ make the rendered projects button bigger - now it is only the size of the text -
 
 detailss popup 
 
-tasks title is aligned different if date is added 
-
 remove / hide the add tasks button when in notes view
+<!-- tasks title is aligned different if date is added  -->

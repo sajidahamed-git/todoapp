@@ -53,9 +53,7 @@ function createTaskObject(title, description, dueDate, projectId) {
 }
 
 export function deleteButtonHandler(button, taskId) {
-  console.log("delete button clicked and below is array after deletrion");
   tasksArray = tasksArray.filter((tasks) => tasks.id !== taskId);
-  console.log(tasksArray);
 
   localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
   const noteDiv = button.closest(".notes");

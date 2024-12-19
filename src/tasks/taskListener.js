@@ -16,22 +16,35 @@ export function taskListeners(){
     taskForm.addEventListener("submit", function () {
       formHandling();
       popup.close();
+      taskForm.reset()
     });
 
     const cancel = document.getElementById("Cancel");
     cancel.addEventListener("click", () => {
       popup.close();
+      taskForm.reset()
     });
 
       // buttons inside home tab
   const allTasks = document.querySelector(".allTasks button");
-  allTasks.addEventListener("click", renderAllTasks);
+  allTasks.addEventListener("click",()=>{
+    renderAllTasks()
+    addNewBtn.classList.remove('hidden')
+  });
 
   const today = document.querySelector(".today button");
-  today.addEventListener("click", renderTodayTasks);
+  today.addEventListener("click",()=>{
+    renderTodayTasks()
+    addNewBtn.classList.remove('hidden')
+
+  });
   
   const thisweek = document.querySelector('.thisweek button')
-  thisweek.addEventListener('click',renderThisweekTasks)
+  thisweek.addEventListener('click',()=>{
+    renderThisweekTasks()
+    addNewBtn.classList.remove('hidden')
+
+  })
   
 }
 
