@@ -1,4 +1,4 @@
-
+import { removeDeletednote } from "./notesHandler";
 
 export function noteRenderer(note) {
   const notesGrid = document.querySelector('.notesGrid')
@@ -51,8 +51,8 @@ export function noteRenderer(note) {
   );
       deleteButton.addEventListener("click", () => {
         noteCard.remove(); // Removes the card
-        // Optionally, handle deletion logic in your application
-        console.log(`Deleted note: ${note.title}`);
+        console.log(note.id);
+        removeDeletednote(note.id)
       });
 
   noteCard.appendChild(noteTitle);

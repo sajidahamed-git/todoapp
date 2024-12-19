@@ -1,5 +1,6 @@
 import { isArrayEmpty } from ".";
 import { noteRenderer } from "./notesRenderer";
+import { tasksArray } from "./taskManager";
 
 let notesArray = [];
 
@@ -14,7 +15,6 @@ export function notesHandler() {
   const noteObject = createNotesObject(noteTitleValue, noteBodyValue);
   notesArray.push(noteObject);
   noteRenderer(noteObject);
-  console.log(notesArray);
   localStorage.setItem("notesArray", JSON.stringify(notesArray));
 }
 let notesCounter = 0;
@@ -33,4 +33,10 @@ function createNotesObject(title, body) {
   };
   notesCounter++;
   return noteObject;
+}
+
+
+export function removeDeletednote(id){
+  notesArray=notesArray.filter((note)=> note.id != id)
+  localStorage.setItem('notesArray',JSON.stringify(notesArray))
 }

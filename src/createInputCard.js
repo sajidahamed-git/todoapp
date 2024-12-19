@@ -18,7 +18,6 @@ export function createNoteInputCard() {
     "py-8"
   );
   notesHeading.appendChild(notesGrid);
-  console.log(notesGrid);
 
   const noteCard = document.createElement("div");
   noteCard.classList.add(
