@@ -30,7 +30,8 @@ export function projectRenderer(projectObject) {
     projectelement.appendChild(delbtn);
     
     const projectContainer = document.getElementById("projectContainer");
-    projectContainer.appendChild(projectelement);
+    // projectContainer.appendChild(projectelement);
+    projectContainer.insertBefore(projectelement,projectContainer.children[1])
     projectNameListener(projectName,projectObject.id)
     projectDelbtnListener(delbtn,projectObject.id);
 }

@@ -7,7 +7,9 @@ import { renderTask } from "./taskRenderer";
 import { projectEventListeners ,setProjectsArray} from "./projectEventListeners";
 import { projectRenderer} from "./projectRenderer";
 
-import { notesEventListeners } from "./notesEventListeners";
+import { createNoteInputCard, notesEventListeners } from "./notesEventListeners";
+import { setNotesArray } from "./notesHandler";
+import { noteRenderer } from "./notesRenderer";
 
 document.addEventListener("DOMContentLoaded", () => {
   taskListeners();
@@ -43,7 +45,21 @@ document.addEventListener("DOMContentLoaded",()=>{
 
 
 
-document.addEventListener("DOMContentLoaded", notesEventListeners);
+  const notesBtn = document.querySelector(".notes button");
+notesBtn.addEventListener("click", ()=>{
+  createNoteInputCard()
+  if (localStorage.getItem('notesArray')) {
+    const tempNotesArray = JSON.parse(localStorage.getItem('notesArray'))
+    // setNotesArray(tempNotesArray)
+    if (!isArrayEmpty(tempNotesArray)) {
+      tempNotesArray.forEach(element => {
+        noteRenderer(element)
+      });
+      
+    }else console.log('notes arr exists in local but is empty');
+    
+  }else console.log('notesarray does not exist in local');
+});
 
 export function isArrayEmpty(arr) {
   return arr.length === 0;
