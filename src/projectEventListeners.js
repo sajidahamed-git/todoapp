@@ -1,7 +1,11 @@
 import { projectRenderer } from "./projectRenderer";
 import { renderTasksByProjectId } from "./taskRenderer";
-import { isArrayEmpty, projectsArray, updateProjectsArray } from ".";
+import { isArrayEmpty} from ".";
+let projectsArray = []
 
+export function setProjectsArray(arr){
+  projectsArray = arr
+}
 export function projectEventListeners() {
   const addProjectbtn = document.getElementById("addProjectbtn");
   const projectNameInput = document.getElementById("projectName");
@@ -25,7 +29,7 @@ export function projectEventListeners() {
     const projectObject = createProjectObject(projectName);
     projectRenderer(projectObject);
     projectsArray.push(projectObject);
-    updateProjectsArray(projectsArray);
+    localStorage.setItem('projectsArray',JSON.stringify(projectsArray))
     populateProjectsDropdown(projectsArray);
   });
 }
@@ -55,10 +59,9 @@ export function projectDelbtnListener(delbtn, projectId) {
     if (projDiv) {
       projDiv.remove();
     }
-    const projFilterArray = projectsArray.filter(
-      (projects) => projects.id !== projectId
+    projectsArray = projectsArray.filter((projects) => projects.id !== projectId
     );
-    updateProjectsArray(projFilterArray);
+    localStorage.setItem('projectsArray',JSON.stringify(projectsArray))
   });
 }
 //populate project array in the popup dom of the addnote dialog box
