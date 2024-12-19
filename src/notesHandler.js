@@ -1,6 +1,5 @@
 import { isArrayEmpty } from ".";
 import { noteRenderer } from "./notesRenderer";
-import { tasksArray } from "./taskManager";
 
 let notesArray = [];
 
