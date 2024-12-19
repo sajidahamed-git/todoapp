@@ -1,5 +1,5 @@
 import { renderTask } from "./taskRenderer";
-import { isArrayEmpty } from ".";
+import { isArrayEmpty } from "..";
 
 export let tasksArray = [];
 
@@ -49,7 +49,6 @@ function createTaskObject(title, description, dueDate, projectId) {
     completed: false,
   };
   taskIdCounter++;
-  localStorage.setItem("taskIdCounter", taskIdCounter);
   return task;
 }
 

@@ -1,29 +1,13 @@
-<!-- add addEventListener to every new project  -->
-<!-- created so that when clicked only tasks of that project are  -->
-<!-- displayed in the list and style the project as such to show -->
-<!-- that it is selected -->
+check due this week functionality -- tasks without any date are rendered in due this week
 
+ability to mark tasks complete
 
-<!-- write logic for all tasks button which displays 
-all the tasks from TAsksArray after the user has filtered
-by projects -->
+add border to rendered notes
 
+make the rendered projects button bigger - now it is only the size of the text -- and also curved edges
 
-<!-- display tasks which are only due today or this week 
-when clicked on the respective button on the home tab -->
+detailss popup 
 
-<!-- local storage -->
+tasks title is aligned different if date is added 
 
-
-<!-- store all arrays in local storage and retrive them
-i am thinking this can be done in index.js file -->
-notes functionality
-time zone is GMT zero for tasks Due today 
-
-
-//save project counter in local storate to get correct 
-//project ids
-
-todo after functionality is complete
-
-project names now cannot be too lenghty fix that
+remove / hide the add tasks button when in notes view

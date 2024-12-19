@@ -1,4 +1,4 @@
-import { isArrayEmpty } from ".";
+import { isArrayEmpty } from "..";
 import { noteRenderer } from "./notesRenderer";
 
 let notesArray = [];

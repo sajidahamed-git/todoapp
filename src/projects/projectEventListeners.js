@@ -1,6 +1,6 @@
 import { projectRenderer } from "./projectRenderer";
-import { renderTasksByProjectId } from "./taskRenderer";
-import { isArrayEmpty} from ".";
+import { renderTasksByProjectId } from "../tasks/taskRenderer";
+import { isArrayEmpty} from "..";
 let projectsArray = []
 
 export function setProjectsArray(arr){
@@ -48,7 +48,6 @@ function createProjectObject(projectName) {
     title: projectName,
   };
   projectCounter++;
-  localStorage.setItem("projectCounter", projectCounter);
 
   return project;
 }

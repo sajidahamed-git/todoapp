@@ -1,5 +1,5 @@
 
-import trashIcon from "./assets/trash.svg";
+import trashIcon from "../assets/trash.svg";
 import { projectDelbtnListener } from "./projectEventListeners";
 import { projectNameListener } from "./projectEventListeners";
 // import { projectsArray } from ".";

@@ -1,18 +1,18 @@
 import "./styles.css";
 
-import { taskListeners } from "./taskListener";
-import { setTasksArray } from "./taskManager";
-import { renderAllTasks, renderTask } from "./taskRenderer";
+import { taskListeners } from "./tasks/taskListener";
+import { setTasksArray } from "./tasks/taskManager";
+import { renderAllTasks, renderTask } from "./tasks/taskRenderer";
 
 import {
   projectEventListeners,
   setProjectsArray,
-} from "./projectEventListeners";
-import { projectRenderer } from "./projectRenderer";
+} from "./projects/projectEventListeners";
+import { projectRenderer } from "./projects/projectRenderer";
 
-import { createNoteInputCard } from "./createInputCard";
-import { noteRenderer } from "./notesRenderer";
-import { setNotesArray } from "./notesHandler";
+import { createNoteInputCard } from "./notes/createInputCard";
+import { noteRenderer } from "./notes/notesRenderer";
+import { setNotesArray } from "./notes/notesHandler";
 
 document.addEventListener("DOMContentLoaded", () => {
   renderAllTasks();
