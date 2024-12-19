@@ -1,14 +1,6 @@
 import { notesHandler } from "./notesHandler";
 
-export function notesEventListeners() {
-  const notesBtn = document.querySelector(".notes button");
-  
-  notesBtn.addEventListener("click", () => {
-    createNoteInputCard();
-  });
-  
-  
-}
+
 export function createNoteInputCard() {
   const notesHeading = document.querySelector(".notesContainer");
   notesHeading.textContent = "All Notes";
