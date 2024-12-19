@@ -1,6 +1,6 @@
 import trashIcon from "./assets/trash.svg";
-// import { tasksArray } from "./taskManager";
-import { tasksArray } from ".";
+
+import { tasksArray } from "./taskManager";
 
 import { addDeleteButtonListener } from "./taskListener";
 
@@ -96,6 +96,7 @@ export function renderTasksByProjectId(projectName, projectId) {
 }
 
 export function renderAllTasks() {
+  // console.log(array);
   notesContainer.innerHTML = "";
   notesContainer.textContent = "All Tasks";
   tasksArray.forEach((task) => {

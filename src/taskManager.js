@@ -1,15 +1,18 @@
 import { renderTask } from "./taskRenderer";
-import { tasksArray, updateTasksArray } from ".";
 import { isArrayEmpty } from ".";
 
-//  let tasksArray = intiTasksArray()
-// export let tasksArray = []
+export let tasksArray = [];
+
+export function setTasksArray(arr) {
+  tasksArray = arr;
+}
+
 export function formHandling() {
   const title = document.getElementById("taskTitle").value;
   const description = document.getElementById("taskDescription").value;
   const dueDate = document.getElementById("taskDueDate").value;
   const selectedProjectId_string = document.querySelector(
-    'select[name="project"'
+    'select[name="project"]'
   ).value;
 
   const selectedProjectId = parseInt(selectedProjectId_string);
@@ -22,17 +25,19 @@ export function formHandling() {
   );
 
   tasksArray.push(taskObject);
-  updateTasksArray(tasksArray);
   renderTask(taskObject);
+  localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
 }
+
+
+
 let taskIdCounter;
 function createTaskObject(title, description, dueDate, projectId) {
   if (isArrayEmpty(tasksArray)) {
     taskIdCounter = 0;
   } else {
-    const lastElement = tasksArray[tasksArray.length - 1]
-    taskIdCounter = lastElement.id + 1
-
+    const lastElement = tasksArray[tasksArray.length - 1];
+    taskIdCounter = lastElement.id + 1;
   }
   let task = {
     id: taskIdCounter,
@@ -43,14 +48,17 @@ function createTaskObject(title, description, dueDate, projectId) {
 
     completed: false,
   };
-  taskIdCounter++
+  taskIdCounter++;
   localStorage.setItem("taskIdCounter", taskIdCounter);
   return task;
 }
 
 export function deleteButtonHandler(button, taskId) {
-  const filteredArray = tasksArray.filter((tasks) => tasks.id !== taskId);
-  updateTasksArray(filteredArray);
+  console.log("delete button clicked and below is array after deletrion");
+  tasksArray = tasksArray.filter((tasks) => tasks.id !== taskId);
+  console.log(tasksArray);
+
+  localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
   const noteDiv = button.closest(".notes");
   if (noteDiv) {
     noteDiv.remove();
