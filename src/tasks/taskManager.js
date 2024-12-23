@@ -68,11 +68,17 @@ export function checkboxHandler(taskId, isChecked) {
   if (task) {
     task.completed = isChecked;
     console.log(`Task ${taskId} updated:`, task);
+
+    //strikethough logic
     if (isChecked) {
       taskElement.classList.add('line-through',"opacity-50")
+      //if checked move to the last of the list 
+      const taskContainer = document.querySelector('.notesContainer')
+      taskContainer.appendChild(taskElement)
     }else{
       taskElement.classList.remove('line-through','opacity-50')
     }
+
 
   }
   localStorage.setItem('tasksArray',JSON.stringify(tasksArray))

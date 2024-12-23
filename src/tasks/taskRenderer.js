@@ -1,8 +1,6 @@
 import trashIcon from "../assets/trash.svg";
 
 import { checkboxHandler, tasksArray } from "./taskManager";
-import { checkboxListener } from "./taskListener";
-
 import { addDeleteButtonListener } from "./taskListener";
 
 const notesContainer = document.querySelector(".notesContainer");
@@ -21,24 +19,24 @@ export function renderTask(taskObject) {
     "shadow-lg",
     "border-gray-200"
   );
-todoElement.setAttribute('id',`task-${taskObject.id}`)
+  todoElement.setAttribute("id", `task-${taskObject.id}`);
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
   checkbox.classList.add("w-6", "h-6", "checkbox");
-  
+
   const title = document.createElement("div");
   title.textContent = taskObject.title;
   title.classList.add("text-left");
-  
-  //if statement only works when rendering from local storage 
+
+  //if statement only works when rendering from local storage
   //see changes as soon as user clicks code in checkboxHandler
   if (taskObject.completed === true) {
-    todoElement.classList.add("line-through","opacity-50");
-    checkbox.checked = true
+    todoElement.classList.add("line-through", "opacity-50");
+    checkbox.checked = true;
   }
-  checkbox.addEventListener('change',(event)=>{
-    checkboxHandler(taskObject.id,event.target.checked)
-  })
+  checkbox.addEventListener("change", (event) => {
+    checkboxHandler(taskObject.id, event.target.checked);
+  });
 
   const dueDate = document.createElement("div");
   dueDate.textContent = taskObject.dueDate;
@@ -87,7 +85,7 @@ todoElement.setAttribute('id',`task-${taskObject.id}`)
   rightside.classList.add("flex", "gap-4", "w-2/5", "justify-around");
   todoElement.appendChild(rightside);
 
-  notesContainer.appendChild(todoElement);
+  notesContainer.prepend(todoElement);
 
   // console.log(todoElement);
 }
@@ -110,7 +108,7 @@ export function renderTasksByProjectId(projectName, projectId) {
 export function renderAllTasks() {
   // console.log(array);
   notesContainer.innerHTML = "";
-  notesContainer.textContent = "All Tasks";
+  // notesContainer.textContent = "All Tasks";
   tasksArray.forEach((task) => {
     renderTask(task);
   });
@@ -118,7 +116,7 @@ export function renderAllTasks() {
 
 export function renderTodayTasks() {
   notesContainer.innerHTML = "";
-  notesContainer.textContent = "Tasks Due Today";
+  // notesContainer.textContent = "Tasks Due Today";
   const currentDate = new Date();
   const formattedDate = currentDate.toISOString().split("T")[0];
 
@@ -128,27 +126,11 @@ export function renderTodayTasks() {
     }
   });
 }
-// export function renderThisweekTasks(){
-//   notesContainer.innerHTML = ''
-//   notesContainer.textContent = 'Tasks Due This week'
-//   //tasks Due by this friday
-//   const currentDate = new Date();
-//   const currentDay = currentDate.getDay();
-//   const daysUntilFriday = 5 - currentDay;
-//   const endOfWeek = new Date(currentDate);
-//   endOfWeek.setDate(currentDate.getDate() + daysUntilFriday);
-//   console.log(endOfWeek);
 
-//   // Filter tasks that are due by this Friday
-// ;
-
-//   // Render the tasks
-// console.log(tasksDueThisWeek);
-
-// }
 export function renderThisweekTasks() {
   notesContainer.innerHTML = ""; // Clear previous content
-  notesContainer.textContent = "Tasks Due This Week"; // Set the heading
+  console.log('hhkhk');
+  // notesContainer.textContent = "Tasks Due This Week"; // Set the heading
 
   const currentDate = new Date(); // Get today's date
   const currentDay = currentDate.getDay(); // Get the current day of the week (0 = Sunday, 6 = Saturday)

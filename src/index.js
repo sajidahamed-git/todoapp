@@ -13,6 +13,7 @@ import { projectRenderer } from "./projects/projectRenderer";
 import { createNoteInputCard } from "./notes/createInputCard";
 import { noteRenderer } from "./notes/notesRenderer";
 import { setNotesArray } from "./notes/notesHandler";
+import { highlightButton } from "./ui-interactions/highlightButton";
 
 document.addEventListener("DOMContentLoaded", () => {
   renderAllTasks();
@@ -49,6 +50,7 @@ document.addEventListener("DOMContentLoaded", () => {
 const notesBtn = document.querySelector(".notes button");
 const addtasksbtn = document.querySelector('.addNewBtn')
 notesBtn.addEventListener("click", () => {
+  highlightButton('.notes')
   createNoteInputCard();
   if (localStorage.getItem("notesArray")) {
     const tempNotesArray = JSON.parse(localStorage.getItem("notesArray"));
