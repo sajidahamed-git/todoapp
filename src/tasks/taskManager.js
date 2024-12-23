@@ -56,7 +56,8 @@ export function deleteButtonHandler(button, taskId) {
   tasksArray = tasksArray.filter((tasks) => tasks.id !== taskId);
 
   localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
-  const noteDiv = button.closest(".notes");
+  const noteDiv = button.closest(".task");
+  console.log(noteDiv);
   if (noteDiv) {
     noteDiv.remove();
   }

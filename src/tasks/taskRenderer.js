@@ -9,7 +9,7 @@ export function renderTask(taskObject) {
   //todo element represents individual notes
   const todoElement = document.createElement("div");
   todoElement.classList.add(
-    
+    "task",
     "mt-4",
     "flex",
     "justify-between",
