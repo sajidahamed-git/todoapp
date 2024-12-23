@@ -29,8 +29,6 @@ export function formHandling() {
   localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
 }
 
-
-
 let taskIdCounter;
 function createTaskObject(title, description, dueDate, projectId) {
   if (isArrayEmpty(tasksArray)) {
@@ -61,4 +59,21 @@ export function deleteButtonHandler(button, taskId) {
   if (noteDiv) {
     noteDiv.remove();
   }
+}
+export function checkboxHandler(taskId, isChecked) {
+  // console.log(a);
+  // console.log(b.target.checked);
+  const task = tasksArray.find((task) => task.id === taskId);
+  const taskElement = document.getElementById(`task-${taskId}`)
+  if (task) {
+    task.completed = isChecked;
+    console.log(`Task ${taskId} updated:`, task);
+    if (isChecked) {
+      taskElement.classList.add('line-through',"opacity-50")
+    }else{
+      taskElement.classList.remove('line-through','opacity-50')
+    }
+
+  }
+  localStorage.setItem('tasksArray',JSON.stringify(tasksArray))
 }

@@ -1,6 +1,7 @@
 import trashIcon from "../assets/trash.svg";
 
-import { tasksArray } from "./taskManager";
+import { checkboxHandler, tasksArray } from "./taskManager";
+import { checkboxListener } from "./taskListener";
 
 import { addDeleteButtonListener } from "./taskListener";
 
@@ -20,14 +21,24 @@ export function renderTask(taskObject) {
     "shadow-lg",
     "border-gray-200"
   );
-
+todoElement.setAttribute('id',`task-${taskObject.id}`)
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.classList.add("w-6", "h-6");
-
+  checkbox.classList.add("w-6", "h-6", "checkbox");
+  
   const title = document.createElement("div");
   title.textContent = taskObject.title;
-  title.classList.add("text-left")
+  title.classList.add("text-left");
+  
+  //if statement only works when rendering from local storage 
+  //see changes as soon as user clicks code in checkboxHandler
+  if (taskObject.completed === true) {
+    todoElement.classList.add("line-through","opacity-50");
+    checkbox.checked = true
+  }
+  checkbox.addEventListener('change',(event)=>{
+    checkboxHandler(taskObject.id,event.target.checked)
+  })
 
   const dueDate = document.createElement("div");
   dueDate.textContent = taskObject.dueDate;

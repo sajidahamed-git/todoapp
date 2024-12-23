@@ -1,4 +1,4 @@
-import { formHandling } from "./taskManager";
+import { checkboxHandler, formHandling, tasksArray } from "./taskManager";
 import { deleteButtonHandler } from "./taskManager";
 import { renderAllTasks } from "./taskRenderer";
 import { renderTodayTasks } from "./taskRenderer";
@@ -48,7 +48,7 @@ export function taskListeners() {
 //event liteners for delete button loaded after user creates a note
 export function addDeleteButtonListener(button, taskId) {
   button.addEventListener("click", () => {
-    console.log('delete button clicked');
+    console.log("delete button clicked");
     deleteButtonHandler(button, taskId);
   });
 }
