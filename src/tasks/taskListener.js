@@ -1,5 +1,5 @@
 import { highlightButton } from "../ui-interactions/highlightButton";
-import { formHandling,deleteButtonHandler} from "./taskManager";
+import { formHandling,deleteButtonHandler, detailsButtonHandler} from "./taskManager";
 import { renderAllTasks,renderTodayTasks,renderThisweekTasks } from "./taskRenderer";
 
 export function taskListeners() {
@@ -53,4 +53,11 @@ export function addDeleteButtonListener(button, taskId) {
     console.log("delete button clicked");
     deleteButtonHandler(button, taskId);
   });
+}
+
+//details button eventlistenr
+export function addDetailsButtonListener(button,taskId){
+  button.addEventListener('click',()=>{
+    detailsButtonHandler(taskId)
+  })
 }

@@ -1,7 +1,7 @@
 import trashIcon from "../assets/trash.svg";
 
 import { checkboxHandler, tasksArray } from "./taskManager";
-import { addDeleteButtonListener } from "./taskListener";
+import { addDeleteButtonListener ,addDetailsButtonListener} from "./taskListener";
 
 const notesContainer = document.querySelector(".notesContainer");
 export function renderTask(taskObject) {
@@ -67,7 +67,7 @@ export function renderTask(taskObject) {
     "rounded-lg",
     "hover:bg-blue-600"
   );
-
+addDetailsButtonListener(details,taskObject.id)
   const delbtn = document.createElement("button");
   delbtn.classList.add("deletebtn");
 

@@ -64,22 +64,36 @@ export function checkboxHandler(taskId, isChecked) {
   // console.log(a);
   // console.log(b.target.checked);
   const task = tasksArray.find((task) => task.id === taskId);
-  const taskElement = document.getElementById(`task-${taskId}`)
+  const taskElement = document.getElementById(`task-${taskId}`);
   if (task) {
     task.completed = isChecked;
     console.log(`Task ${taskId} updated:`, task);
 
     //strikethough logic
     if (isChecked) {
-      taskElement.classList.add('line-through',"opacity-50")
-      //if checked move to the last of the list 
-      const taskContainer = document.querySelector('.notesContainer')
-      taskContainer.appendChild(taskElement)
-    }else{
-      taskElement.classList.remove('line-through','opacity-50')
+      taskElement.classList.add("line-through", "opacity-50");
+      //if checked move to the last of the list
+      const taskContainer = document.querySelector(".notesContainer");
+      taskContainer.appendChild(taskElement);
+    } else {
+      taskElement.classList.remove("line-through", "opacity-50");
     }
-
-
   }
-  localStorage.setItem('tasksArray',JSON.stringify(tasksArray))
+  localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+}
+export function detailsButtonHandler(taskId) {
+  let taskDetails = tasksArray[taskId].description;
+  const modal = document.getElementById("detailsModal");
+  const taskDescription = document.getElementById("taskDetails");
+
+  if (taskDetails === "") {
+    taskDetails = "No Details Added for this task";
+  }
+  taskDescription.textContent = taskDetails;
+  modal.showModal();
+
+  const closeModal = document.getElementById("closeModal");
+  closeModal.addEventListener("click", () => {
+    modal.close();
+  });
 }
