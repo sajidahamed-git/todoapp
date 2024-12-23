@@ -16,6 +16,7 @@ import { setNotesArray } from "./notes/notesHandler";
 import { highlightButton } from "./ui-interactions/highlightButton";
 
 document.addEventListener("DOMContentLoaded", () => {
+  highlightButton('.allTasks')
   renderAllTasks();
 });
 
