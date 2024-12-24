@@ -21,9 +21,14 @@ export function projectRenderer(projectObject) {
   projectName.classList.add(
     "projectName",
     "w-11/12",
+    "text-xl",
     "py-2", // Padding (vertical)
-    "px-4", // Padding (horizontal)
+    "my-2",
+    // "px-4", // Padding (horizontal)
     "rounded-lg", // Rounded corners
+    "border-2",
+    "border-solid",
+    "border-blue-400",
     "hover:bg-blue-300", // Darker background on hover
     "focus:outline-none", // Remove outline on focus
     "focus:ring-2", // Focus ring for accessibility
@@ -34,6 +39,7 @@ export function projectRenderer(projectObject) {
 
   const delbtn = document.createElement("button");
   const icon = document.createElement("img");
+  icon.classList.add('w-6')
   icon.src = trashIcon;
   delbtn.appendChild(icon);
 

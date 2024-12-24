@@ -96,7 +96,6 @@ export function renderTasksByProjectId(projectName, projectId) {
   projectName = projectName.textContent;
   let filteredTasks = [];
   notesContainer.innerHTML = "";
-  notesContainer.textContent = `Tasks from ${projectName} project`;
 
   filteredTasks = tasksArray.filter((tasks) => tasks.projectId === projectId);
 
