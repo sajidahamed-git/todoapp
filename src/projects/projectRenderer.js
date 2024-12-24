@@ -10,25 +10,43 @@ export function projectRenderer(projectObject) {
     "projectElement",
     "flex",
     "w-full",
-    "border-2",
+    // "border-2",
     "justify-between"
   );
+  
   projectelement.setAttribute("data-id", projectObject.id);
+  //projectName is actually a button
+  // const projectName = document.createElement("button");
+  // projectName.classList.add("projectName","w-full");
   const projectName = document.createElement("button");
-  projectName.classList.add("projectName");
+projectName.classList.add(
+  "projectName", 
+  "w-11/12", 
+  "py-2",                   // Padding (vertical)
+  "px-4",                   // Padding (horizontal)
+  "rounded-lg",             // Rounded corners
+  "hover:bg-blue-300",      // Darker background on hover
+  "focus:outline-none",     // Remove outline on focus
+  "focus:ring-2",           // Focus ring for accessibility
+  "focus:bg-blue-600"     // Color of focus ring
+);
+
   projectName.textContent = projectObject.title;
-  projectelement.appendChild(projectName);
 
+  
   const delbtn = document.createElement("button");
-  // delbtn.classcList.add('')
-
   const icon = document.createElement("img");
   icon.src = trashIcon;
   delbtn.appendChild(icon);
+
+  
+  projectelement.appendChild(projectName);
   projectelement.appendChild(delbtn);
 
   const projectContainer = document.getElementById("projectContainer");
-  // projectContainer.appendChild(projectelement);
+
+  //below code because the input of project is also in projectContainer so 
+  //every new project is added in second place in the projectContainer
   projectContainer.insertBefore(projectelement, projectContainer.children[1]);
   projectNameListener(projectName, projectObject.id);
   projectDelbtnListener(delbtn, projectObject.id);

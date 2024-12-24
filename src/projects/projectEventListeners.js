@@ -1,6 +1,7 @@
 import { projectRenderer } from "./projectRenderer";
 import { renderTasksByProjectId } from "../tasks/taskRenderer";
 import { isArrayEmpty} from "..";
+import { removeAllHighlight } from "../ui-interactions/highlightButton";
 let projectsArray = []
 
 export function setProjectsArray(arr){
@@ -90,6 +91,8 @@ function populateProjectsDropdown(projectsArray) {
 }
 export function projectNameListener(projectName, projectId) {
   projectName.addEventListener("click", function () {
+    console.log('remove highligh fromhome tab');
+    removeAllHighlight()
     // console.log(projectId);
     //render all tasks with this project id
     renderTasksByProjectId(projectName, projectId);
