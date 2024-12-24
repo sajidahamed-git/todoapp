@@ -1,17 +1,17 @@
-project popuplate not working in addtask modal
 
-check due this week functionality -- tasks without any date are rendered in due this week
 
-add day in date for better readability
-
+add overdue indicator if duedate is past
 
 add border to rendered notes
 
-make the rendered projects button bigger - now it is only the size of the text -- and also curved edges
-make all the buttons in home pane also bigger
+add input validation for notes
 
+<!-- make the rendered projects button bigger - now it is only the size of the text -- and also curved edges -->
+<!-- make all the buttons in home pane also bigger -->
+<!-- check due this week functionality -- tasks without any date are rendered in due this week -->
+<!-- project popuplate not working in addtask modal -->
+<!-- add day in date for better readability -->
 <!-- detailss popup  -->
-
 <!-- ability to mark tasks complete -->
 <!-- remove / hide the add tasks button when in notes view -->
 <!-- tasks title is aligned different if date is added  -->
