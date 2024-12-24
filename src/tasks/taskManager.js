@@ -1,6 +1,10 @@
 import { renderTask } from "./taskRenderer";
 import { isArrayEmpty } from "..";
 
+import autoAnimate from "@formkit/auto-animate";
+const taskContainer = document.querySelector(".notesContainer");
+autoAnimate(taskContainer)
+
 export let tasksArray = [];
 
 export function setTasksArray(arr) {
@@ -60,6 +64,7 @@ export function deleteButtonHandler(button, taskId) {
     noteDiv.remove();
   }
 }
+
 export function checkboxHandler(taskId, isChecked) {
   // console.log(a);
   // console.log(b.target.checked);
@@ -73,7 +78,6 @@ export function checkboxHandler(taskId, isChecked) {
     if (isChecked) {
       taskElement.classList.add("line-through", "opacity-50");
       //if checked move to the last of the list
-      const taskContainer = document.querySelector(".notesContainer");
       taskContainer.appendChild(taskElement);
     } else {
       taskElement.classList.remove("line-through", "opacity-50");

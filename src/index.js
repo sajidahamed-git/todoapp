@@ -48,7 +48,7 @@ document.addEventListener("DOMContentLoaded", () => {
   } else console.log("projectsArray does not exist in local");
 });
 
-const notesBtn = document.querySelector(".notes button");
+const notesBtn = document.querySelector(".notes");
 const addtasksbtn = document.querySelector('.addNewBtn')
 notesBtn.addEventListener("click", () => {
   highlightButton('.notes')

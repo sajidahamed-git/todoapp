@@ -25,21 +25,21 @@ export function taskListeners() {
 
   // buttons inside home tab
   //all tasks
-  const allTasks = document.querySelector(".allTasks button");
+  const allTasks = document.querySelector(".allTasks");
   allTasks.addEventListener("click", () => {
     renderAllTasks();
     addNewBtn.classList.remove("hidden");
     highlightButton('.allTasks')
   });
 // today tasks
-  const today = document.querySelector(".today button");
+  const today = document.querySelector(".today");
   today.addEventListener("click", () => {
     renderTodayTasks();
     addNewBtn.classList.remove("hidden");
     highlightButton('.today')
   });
 //this week tasks
-  const thisweek = document.querySelector(".thisweek button");
+  const thisweek = document.querySelector(".thisweek");
   thisweek.addEventListener("click", () => {
     renderThisweekTasks();
     addNewBtn.classList.remove("hidden");

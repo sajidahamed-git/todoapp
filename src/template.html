@@ -17,22 +17,30 @@
         >
           Home
         </div>
-        <div class="allTasks flex items-center px-4 py-1">
-          <img class="w-8" src="assets/inbox.png" />
-          <div class="text pl-2"><button>All Tasks</button></div>
-        </div>
-        <div class="today flex items-center px-4 py-1">
-          <img class="w-8" src="assets/inbox.png" />
-          <div class="text pl-2"><button>Today</button></div>
-        </div>
-        <div class="thisweek flex items-center px-4 py-1">
-          <img class="w-8" src="./assets/inbox.png" alt="" />
-          <div class="text pl-2"><button>This Week</button></div>
-        </div>
-        <div class="notes flex items-center px-4 py-1">
-          <img class="w-8" src="./assets/inbox.png" alt="" />
-          <div class="text pl-2"><button>Notes</button></div>
-        </div>
+        <button class="allTasks w-full">
+          <div class=" flex items-center px-4 py-1">
+            <img class="w-8" src="assets/inbox.png" />
+            <div class="text pl-2">All Tasks</div>
+          </div>
+        </button>
+        <button class="today w-full">
+          <div class="today flex items-center px-4 py-1">
+            <img class="w-8" src="assets/inbox.png" />
+            <div class="text pl-2">Today</div>
+          </div>
+        </button>
+        <button class="thisweek w-full">
+          <div class="thisweek flex items-center px-4 py-1">
+            <img class="w-8" src="./assets/inbox.png" alt="" />
+            <div class="text pl-2">This Week</div>
+          </div>
+        </button>
+        <button class="notes w-full">
+          <div class="notes flex items-center px-4 py-1">
+            <img class="w-8" src="./assets/inbox.png" alt="" />
+            <div class="text pl-2">Notes</div>
+          </div>
+        </button>
         <div
           class="projects m-4 border-b-4 border-solid border-blue-400 px-4 py-2 text-2xl"
         >
@@ -42,7 +50,7 @@
           class="projectContainer flex flex-col items-center px-4 gap-2"
           id="projectContainer"
         >
-          <div class="flex w-full justify-between">
+          <div class="flex w-full justify-between gap-4">
             <!--  add new project input field and button -->
             <input
               class="w-full placeholder:text-center rounded-md"
@@ -52,7 +60,7 @@
               placeholder="Add new Project"
             />
             <button id="addProjectbtn">
-              <img class="w-8" src="./assets/inbox.png" alt="" />
+              <img class="w-8" src="./assets/add-post.png" alt="" />
             </button>
             <!-- <button id="addproject">Add New Project</button> -->
           </div>
