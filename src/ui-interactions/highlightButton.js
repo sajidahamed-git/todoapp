@@ -19,3 +19,21 @@ export function highlightButton(buttonClass) {
         });
 
   }
+
+  // export function menuVisibility(){
+  //   const menu = document.querySelector('.leftPane')
+  //   // menu.classList.toggle('hidden')
+  //   console.log(menu);
+
+  // }
+  export function menuVisibility() {
+    const menu = document.querySelector('.leftPane');
+    if (menu.classList.contains('opacity-100')) {
+      menu.classList.replace('opacity-100', 'opacity-0');
+      menu.classList.replace('visible', 'invisible');
+    } else {
+      menu.classList.replace('opacity-0', 'opacity-100');
+      menu.classList.replace('invisible', 'visible');
+    }
+  }
+  

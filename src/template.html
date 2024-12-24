@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
@@ -6,19 +6,23 @@
     <link rel="icon" href="data:," />
     <title>To-Do App</title>
   </head>
-  <body class=" h-lvh">
-    <div class="flexContainer h-auto flex flex-wrap">
-      <header class="w-full bg-blue-400 py-4 text-center text-2xl">
-        To-Do App
+  <body class="h-lvh">
+    <div class="flexContainer flex h-auto flex-wrap">
+      
+      <header class="flex w-full items-center justify-between bg-blue-400 px-6 py-4 text-center text-2xl">
+        
+        <button class="burger" id="burgerButton"><img class="w-8" src="assets/menu.png" alt="" /></button>
+        <div class="flex-1 text-center">To-Do App</div>
+
       </header>
-      <div class="leftPane border-r-4 border-cyan-800 w-1/4 h-svh">
+      <div class="leftPane h-svh w-1/4 border-r-4 border-cyan-800 opacity-100 visible">
         <div
           class="home m-4 border-b-4 border-solid border-blue-400 px-4 py-2 text-2xl"
         >
           Home
         </div>
         <button class="allTasks w-full hover:bg-blue-300">
-          <div class=" flex items-center px-4 py-1">
+          <div class="flex items-center px-4 py-1">
             <img class="w-8" src="assets/inbox.png" />
             <div class="text pl-2">All Tasks</div>
           </div>
@@ -47,13 +51,13 @@
           Projects
         </div>
         <div
-          class="projectContainer flex flex-col items-center px-4 gap-2"
+          class="projectContainer flex flex-col items-center gap-2 px-4"
           id="projectContainer"
         >
           <div class="flex w-full justify-between gap-4">
             <!--  add new project input field and button -->
             <input
-              class="w-full placeholder:text-center rounded-md"
+              class="w-full rounded-md placeholder:text-center"
               type="text"
               name="newProject"
               id="projectName"
@@ -149,16 +153,13 @@
       </form>
     </dialog>
     <!-- Modal -->
-    <dialog
-      id="detailsModal"
-      class="bg-white p-6 rounded-lg  max-w-lg w-full"
-    >
+    <dialog id="detailsModal" class="w-full max-w-lg rounded-lg bg-white p-6">
       <div class="detailsContainer flex flex-col">
-        <h2 class="text-xl font-bold mb-4">Task Details</h2>
-        <div id="taskDetails" class="text-sm break-words"></div>
+        <h2 class="mb-4 text-xl font-bold">Task Details</h2>
+        <div id="taskDetails" class="break-words text-sm"></div>
         <button
           id="closeModal"
-          class="mt-4 px-4 py-2 bg-red-500 aligncen text-white rounded hover:bg-red-600"
+          class="aligncen mt-4 rounded bg-red-500 px-4 py-2 text-white hover:bg-red-600"
         >
           Close
         </button>

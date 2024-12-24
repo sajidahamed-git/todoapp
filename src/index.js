@@ -13,11 +13,14 @@ import { projectRenderer } from "./projects/projectRenderer";
 import { createNoteInputCard } from "./notes/createInputCard";
 import { noteRenderer } from "./notes/notesRenderer";
 import { setNotesArray } from "./notes/notesHandler";
-import { highlightButton } from "./ui-interactions/highlightButton";
-
+import { highlightButton, menuVisibility } from "./ui-interactions/highlightButton";
+const burgerButton = document.getElementById('burgerButton')
 document.addEventListener("DOMContentLoaded", () => {
   highlightButton('.allTasks')
   renderAllTasks();
+  burgerButton.addEventListener('click',()=>{
+    menuVisibility()
+  })
 });
 
 document.addEventListener("DOMContentLoaded", () => {
