@@ -12,7 +12,12 @@ import {
 export function projectRenderer(projectObject) {
   //project element is the individual element which contains each project
   const projectelement = document.createElement("div");
-  projectelement.classList.add("projectElement");
+  projectelement.classList.add("projectElement",
+    "flex",
+    "items-center",
+    "justify-between",
+    'w-full'
+  );
 
   projectelement.setAttribute("data-id", projectObject.id);
   //projectName is actually a button
@@ -20,11 +25,11 @@ export function projectRenderer(projectObject) {
   const projectName = document.createElement("button");
   projectName.classList.add(
     "projectName",
-    "w-11/12",
     "text-xl",
-    "py-2", // Padding (vertical)
+    "p-2", // Padding (vertical)
     "my-2",
-    // "px-4", // Padding (horizontal)
+    "flex-grow",
+    "text-left",
     "rounded-lg", // Rounded corners
     "border-2",
     "border-solid",
@@ -38,6 +43,7 @@ export function projectRenderer(projectObject) {
   projectName.textContent = projectObject.title;
 
   const delbtn = document.createElement("button");
+  delbtn.classList.add('ml-2',"hover:bg-red-300","rounded-lg")
   const icon = document.createElement("img");
   icon.classList.add('w-6')
   icon.src = trashIcon;

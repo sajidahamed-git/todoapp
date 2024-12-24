@@ -26,14 +26,32 @@ export function highlightButton(buttonClass) {
   //   console.log(menu);
 
   // }
+  // export function menuVisibility() {
+  //   const menu = document.querySelector('.leftPane');
+  //   if (menu.classList.contains('sm:opacity-100')) {
+  //     menu.classList.replace('sm:opacity-100', 'sm:opacity-0');
+  //     menu.classList.replace('sm:visible', 'sm:invisible');
+  //   } else {
+  //     menu.classList.replace('sm:opacity-0', 'sm:opacity-100');
+  //     menu.classList.replace('sm:invisible', 'sm:visible');
+  //   }
+  // }
   export function menuVisibility() {
     const menu = document.querySelector('.leftPane');
-    if (menu.classList.contains('opacity-100')) {
-      menu.classList.replace('opacity-100', 'opacity-0');
-      menu.classList.replace('visible', 'invisible');
-    } else {
-      menu.classList.replace('opacity-0', 'opacity-100');
-      menu.classList.replace('invisible', 'visible');
+  
+    // For larger screens
+    if (window.innerWidth >= 640) { // 640px is Tailwind's `sm` breakpoint
+      if (menu.classList.contains('sm:opacity-100')) {
+        menu.classList.replace('sm:opacity-100', 'sm:opacity-0');
+        menu.classList.replace('sm:visible', 'sm:invisible');
+      } else {
+        menu.classList.replace('sm:opacity-0', 'sm:opacity-100');
+        menu.classList.replace('sm:invisible', 'sm:visible');
+      }
+    } 
+    // For smaller screens
+    else {
+      menu.classList.toggle('hidden');
     }
   }
   
