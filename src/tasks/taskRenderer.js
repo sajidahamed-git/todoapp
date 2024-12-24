@@ -30,13 +30,7 @@ export function renderTask(taskObject) {
 
   //if statement only works when rendering from local storage
   //see changes as soon as user clicks code in checkboxHandler
-  if (taskObject.completed === true) {
-    todoElement.classList.add("line-through", "opacity-50");
-    checkbox.checked = true;
-  }
-  checkbox.addEventListener("change", (event) => {
-    checkboxHandler(taskObject.id, event.target.checked);
-  });
+
 
   const dueDate = document.createElement("div");
   dueDate.textContent = taskObject.dueDate;
@@ -84,8 +78,15 @@ addDetailsButtonListener(details,taskObject.id)
   rightside.appendChild(delbtn);
   rightside.classList.add("flex", "gap-4", "w-2/5", "justify-around");
   todoElement.appendChild(rightside);
-
-  notesContainer.prepend(todoElement);
+  if (taskObject.completed === true) {
+    todoElement.classList.add("line-through", "opacity-50");
+    checkbox.checked = true;
+    notesContainer.appendChild(todoElement)
+  }
+  else notesContainer.prepend(todoElement);
+  checkbox.addEventListener("change", (event) => {
+    checkboxHandler(taskObject.id, event.target.checked);
+  });
 
   // console.log(todoElement);
 }
