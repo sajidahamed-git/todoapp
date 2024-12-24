@@ -1,7 +1,10 @@
 import trashIcon from "../assets/trash.svg";
 
 import { checkboxHandler, tasksArray } from "./taskManager";
-import { addDeleteButtonListener ,addDetailsButtonListener} from "./taskListener";
+import {
+  addDeleteButtonListener,
+  addDetailsButtonListener,
+} from "./taskListener";
 
 const notesContainer = document.querySelector(".notesContainer");
 export function renderTask(taskObject) {
@@ -17,7 +20,7 @@ export function renderTask(taskObject) {
     "p-4",
     "rounded-lg",
     "shadow-lg",
-    "border-gray-200"
+    "border-gray-200",
   );
   todoElement.setAttribute("id", `task-${taskObject.id}`);
   const checkbox = document.createElement("input");
@@ -31,9 +34,8 @@ export function renderTask(taskObject) {
   //if statement only works when rendering from local storage
   //see changes as soon as user clicks code in checkboxHandler
 
-
   const dueDate = document.createElement("div");
-  dueDate.textContent = taskObject.dueDate;
+  dueDate.textContent = formatISODate(taskObject.dueDate);
 
   //leftside has the checkbox title and duedate
   const leftside = document.createElement("div");
@@ -45,7 +47,7 @@ export function renderTask(taskObject) {
     "gap-4",
     "items-center",
     "w-3/5",
-    "justify-between"
+    "justify-between",
   );
 
   todoElement.appendChild(leftside);
@@ -59,9 +61,9 @@ export function renderTask(taskObject) {
     "bg-blue-500",
     "text-white",
     "rounded-lg",
-    "hover:bg-blue-600"
+    "hover:bg-blue-600",
   );
-addDetailsButtonListener(details,taskObject.id)
+  addDetailsButtonListener(details, taskObject.id);
   const delbtn = document.createElement("button");
   delbtn.classList.add("deletebtn");
 
@@ -81,9 +83,8 @@ addDetailsButtonListener(details,taskObject.id)
   if (taskObject.completed === true) {
     todoElement.classList.add("line-through", "opacity-50");
     checkbox.checked = true;
-    notesContainer.appendChild(todoElement)
-  }
-  else notesContainer.prepend(todoElement);
+    notesContainer.appendChild(todoElement);
+  } else notesContainer.prepend(todoElement);
   checkbox.addEventListener("change", (event) => {
     checkboxHandler(taskObject.id, event.target.checked);
   });
@@ -99,10 +100,14 @@ export function renderTasksByProjectId(projectName, projectId) {
 
   filteredTasks = tasksArray.filter((tasks) => tasks.projectId === projectId);
 
-  // console.log(filteredTasks);
-  filteredTasks.forEach((task) => {
-    renderTask(task);
-  });
+  if (filteredTasks.length === 0) {
+    console.log("empty");
+    notesContainer.innerHTML = 'No tasks in this project'
+  } else {
+    filteredTasks.forEach((task) => {
+      renderTask(task);
+    });
+  }
 }
 
 export function renderAllTasks() {
@@ -129,7 +134,7 @@ export function renderTodayTasks() {
 
 export function renderThisweekTasks() {
   notesContainer.innerHTML = ""; // Clear previous content
-  console.log('hhkhk');
+  console.log("hhkhk");
   // notesContainer.textContent = "Tasks Due This Week"; // Set the heading
 
   const currentDate = new Date(); // Get today's date
@@ -151,5 +156,14 @@ export function renderThisweekTasks() {
       // Directly compare task.dueDate with formattedFridayDate
       renderTask(task); // Render the task
     }
+  });
+}
+
+function formatISODate(isoDate) {
+  const date = new Date(isoDate);
+  return date.toLocaleDateString("en-US", {
+    weekday: "short", // e.g., Sat
+    month: "short", // e.g., Dec
+    day: "numeric", // e.g., 28
   });
 }
