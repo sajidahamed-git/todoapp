@@ -1,6 +1,8 @@
 import { highlightButton } from "../ui-interactions/highlightButton";
 import { formHandling,deleteButtonHandler, detailsButtonHandler} from "./taskManager";
 import { renderAllTasks,renderTodayTasks,renderThisweekTasks } from "./taskRenderer";
+import { populateProjectsDropdown } from "../projects/projectEventListeners";
+
 
 export function taskListeners() {
   const popup = document.getElementById("newTaskDialog");
@@ -8,6 +10,7 @@ export function taskListeners() {
   const addNewBtn = document.querySelector(".addNewBtn");
   addNewBtn.addEventListener("click", function () {
     popup.showModal();
+    populateProjectsDropdown()
   });
 
   const taskForm = document.getElementById("taskform");

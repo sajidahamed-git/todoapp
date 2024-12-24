@@ -31,7 +31,6 @@ export function projectEventListeners() {
     projectRenderer(projectObject);
     projectsArray.push(projectObject);
     localStorage.setItem('projectsArray',JSON.stringify(projectsArray))
-    populateProjectsDropdown(projectsArray);
   });
 }
 //save project counter in local storate to get correct
@@ -66,7 +65,7 @@ export function projectDelbtnListener(delbtn, projectId) {
 }
 //populate project array in the popup dom of the addnote dialog box
 
-function populateProjectsDropdown(projectsArray) {
+export function populateProjectsDropdown() {
   // Select the dropdown
   console.log("mango");
   const projectDropdown = document.querySelector('select[name="project"]');
