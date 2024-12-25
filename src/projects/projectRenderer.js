@@ -1,4 +1,4 @@
-import trashIcon from "../assets/trash.svg";
+import trashIcon from "../assets/trash.png";
 
 import autoAnimate from "@formkit/auto-animate";
 const projectList = document.querySelector(".projectList");

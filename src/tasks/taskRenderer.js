@@ -1,4 +1,4 @@
-import trashIcon from "../assets/trash.svg";
+import trashIcon from "../assets/trash.png";
 
 import { checkboxHandler, tasksArray } from "./taskManager";
 import {
@@ -12,24 +12,28 @@ export function renderTask(taskObject) {
   const todoElement = document.createElement("div");
   todoElement.classList.add(
     "task",
-    "mt-4",
     "flex",
-    "justify-between",
-    "border-2",
+    "gap-2",
+    "justify-start",
+    "mb-4",
+    "p-2",
+    "text-sm",
     "bg-slate-200",
-    "p-4",
     "rounded-lg",
-    "shadow-lg",
     "border-gray-200",
+    "sm:text-xl",
+    "sm:mt-4",
+    "sm:p-4",
+    "sm:border-2",
   );
   todoElement.setAttribute("id", `task-${taskObject.id}`);
   const checkbox = document.createElement("input");
   checkbox.type = "checkbox";
-  checkbox.classList.add("w-6", "h-6", "checkbox");
+  checkbox.classList.add("sm:w-6","sm:h-6","w-3", "h-3", "checkbox");
 
   const title = document.createElement("div");
   title.textContent = taskObject.title;
-  title.classList.add("text-left");
+  title.classList.add("text-left","w-3/5");
 
   //if statement only works when rendering from local storage
   //see changes as soon as user clicks code in checkboxHandler
@@ -44,22 +48,24 @@ export function renderTask(taskObject) {
   leftside.appendChild(dueDate);
   leftside.classList.add(
     "flex",
-    "gap-4",
+    "gap-2",
+    "justify-between",
     "items-center",
     "w-3/5",
-    "justify-between",
   );
 
-  todoElement.appendChild(leftside);
+  todoElement.appendChild(leftside);   
 
   const details = document.createElement("button");
   details.textContent = "Details";
   details.classList.add(
     "details",
-    "px-4",
-    "py-2",
-    "bg-blue-500",
-    "text-white",
+    "bg-blue-400",
+    "p-2",
+    "sm:px-4",
+    "sm:py-2",
+    "sm:bg-blue-500",
+    "sm:text-white",
     "rounded-lg",
     "hover:bg-blue-600",
   );
@@ -69,6 +75,7 @@ export function renderTask(taskObject) {
 
   const icon = document.createElement("img");
   icon.src = trashIcon;
+  icon.classList.add("sm:w-6")
   delbtn.appendChild(icon);
 
   //event listener is added to the delete button
@@ -78,8 +85,18 @@ export function renderTask(taskObject) {
   const rightside = document.createElement("div");
   rightside.appendChild(details);
   rightside.appendChild(delbtn);
-  rightside.classList.add("flex", "gap-4", "w-2/5", "justify-around");
+  rightside.classList.add(
+    "flex", 
+    "w-1/5",
+    "gap-2",
+    "sm:gap-4", 
+    "sm:w-2/5", 
+    "justify-around");
   todoElement.appendChild(rightside);
+
+
+
+
   if (taskObject.completed === true) {
     todoElement.classList.add("line-through", "opacity-50");
     checkbox.checked = true;
