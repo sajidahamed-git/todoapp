@@ -7,15 +7,16 @@
     <title>To-Do App</title>
   </head>
   <body class="h-lvh">
-    <div class="flexContainer flex h-auto flex-wrap">
-      
+    <div class="flexContainer flex flex-col sm:h-auto sm:flex-wrap sm:flex-row">
+      <!-- one -->
       <header class="flex w-full items-center justify-between bg-blue-400 px-6 py-4 text-center text-2xl">
         
         <button class="burger" id="burgerButton"><img class="w-8" src="assets/menu.png" alt="" /></button>
         <div class="flex-1 text-center">To-Do App</div>
 
       </header>
-      <div class="leftPane h-svh w-1/4 border-r-4 border-blue-500  sm:opacity-100 sm:visible transition-all">
+      <!-- two -->
+      <div class="leftPane sm:h-svh sm:w-1/4 border-r-4 border-blue-500  sm:opacity-100 sm:visible transition-all">
         <div
           class="home m-4 border-b-4 border-solid border-blue-400 px-4 py-2 text-2xl"
         >
@@ -72,8 +73,9 @@
           </div>
         </div>
       </div>
-      <div class="rightPane w-3/5">
-        <div class="notesContainer p-4 text-xl">
+      <!-- three -->
+      <div class="rightPane sm:w-3/5">
+        <div class="notesContainer p-4 text-xl sm:text-xl sm:opacity-100 sm:visible">
           <!-- JS adds created notes here -->
         </div>
       </div>
