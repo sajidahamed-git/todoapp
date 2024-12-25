@@ -21,6 +21,7 @@ export function createNoteInputCard() {
 
   const noteCard = document.createElement("div");
   noteCard.classList.add(
+    "noteCard",
     "flex",
     "flex", // Makes the note card a flex container
     "flex-col", // Aligns child elements vertically
