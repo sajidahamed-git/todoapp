@@ -9,10 +9,10 @@
   <body class="h-lvh sm:text-xl">
     <div class="flexContainer flex flex-col sm:h-auto sm:flex-wrap sm:flex-row">
       <!-- one -->
-      <header class="flex w-full items-center justify-between bg-blue-400 px-6 py-4 text-center text-2xl">
+      <header class=" flex w-full items-center justify-center relative bg-blue-400 px-6 py-4 text-center text-2xl">
         
-        <button class="burger" id="burgerButton"><img class="w-8" src="assets/menu.png" alt="" /></button>
-        <div class="flex-1 text-center">To-Do App</div>
+        <button class="burger absolute left-0 p-2" id="burgerButton"><img class="w-8" src="assets/menu.png" alt="" /></button>
+        <div class="flex-grow text-center">To-Do App</div>
 
       </header>
       <!-- two -->
@@ -58,7 +58,7 @@
           <div class="flex w-full justify-between gap-4">
             <!--  add new project input field and button -->
             <input
-              class="w-full rounded-md placeholder:text-center h-8 border-solid border-2 border-blue-400"
+              class="w-full rounded-md placeholder:text-center h-8 border-solid border-2 border-blue-400 p-4"
               type="text"
               name="newProject"
               id="projectName"
