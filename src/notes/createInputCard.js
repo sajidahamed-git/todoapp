@@ -10,12 +10,12 @@ export function createNoteInputCard() {
   notesGrid.classList.add(
     "notesGrid",
     "grid",
-    "grid-cols-3",
+
     "grid-auto-rows",
-    "gap-6",
-    "w-full",
-    "px-4",
-    "py-8"
+    "sm:gap-6",
+    "sm:grid-cols-3",
+    "sm:px-4",
+    "sm:py-8"
   );
   notesHeading.appendChild(notesGrid);
 
@@ -23,11 +23,10 @@ export function createNoteInputCard() {
   noteCard.classList.add(
     "noteCard",
     "flex",
-    "flex", // Makes the note card a flex container
     "flex-col", // Aligns child elements vertically
     "gap-4", // Adds a larger gap between child elements
-    "w-full", // Makes the note card take the full width of its container
-    "max-w-lg", // Limits the width for better readability
+    "m-4",
+    // "w-full", // Makes the note card take the full width of its container
     "bg-white", // Sets the background color to white
     "shadow-lg", // Adds a soft shadow for a lifted look
     "rounded-lg", // Rounds the corners for a modern feel

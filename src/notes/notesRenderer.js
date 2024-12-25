@@ -1,20 +1,19 @@
 import { removeDeletednote } from "./notesHandler";
 
 export function noteRenderer(note) {
-  const notesGrid = document.querySelector('.notesGrid')
+  const notesGrid = document.querySelector(".notesGrid");
   const noteCard = document.createElement("div");
   noteCard.classList.add(
     "flex",
     "flex-col",
     "gap-4",
-    "w-full",
-    "max-w-md",
+    "m-4",
     "bg-white",
     "shadow-md",
     "rounded-lg",
     "p-6",
     "border",
-    "border-gray-300"
+    "border-gray-300",
   );
 
   // Note Title
@@ -24,13 +23,24 @@ export function noteRenderer(note) {
     "w-full",
     "text-lg",
     "font-semibold",
-    "text-gray-800"
+    "border", // Adds a border
+    "border-gray-200",
+    "rounded-lg",
+    "p-2",
   );
 
   // Note Body
   const noteBody = document.createElement("div");
   noteBody.textContent = note.body;
-  noteBody.classList.add("text-gray-600", "text-sm", "w-full", "h-24");
+  noteBody.classList.add(
+    "text-sm",
+    "w-full",
+    "h-24",
+    "border", // Adds a border
+    "border-gray-200",
+    "rounded-lg",
+    "p-2",
+  );
 
   // Delete Button
   const deleteButton = document.createElement("button");
@@ -47,13 +57,13 @@ export function noteRenderer(note) {
     "focus:ring-2",
     "focus:ring-red-400",
     "transition-colors",
-    "duration-200"
+    "duration-200",
   );
-      deleteButton.addEventListener("click", () => {
-        noteCard.remove(); // Removes the card
-        console.log(note.id);
-        removeDeletednote(note.id)
-      });
+  deleteButton.addEventListener("click", () => {
+    noteCard.remove(); // Removes the card
+    console.log(note.id);
+    removeDeletednote(note.id);
+  });
 
   noteCard.appendChild(noteTitle);
   noteCard.appendChild(noteBody);
@@ -61,4 +71,3 @@ export function noteRenderer(note) {
 
   notesGrid.insertBefore(noteCard, notesGrid.children[1]);
 }
-
