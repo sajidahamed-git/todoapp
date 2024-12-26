@@ -1,6 +1,5 @@
 import { notesHandler } from "./notesHandler";
 
-
 export function createNoteInputCard() {
   const notesHeading = document.querySelector(".notesContainer");
   notesHeading.textContent = "All Notes";
@@ -15,7 +14,7 @@ export function createNoteInputCard() {
     "sm:gap-6",
     "sm:grid-cols-3",
     "sm:px-4",
-    "sm:py-8"
+    "sm:py-8",
   );
   notesHeading.appendChild(notesGrid);
 
@@ -35,7 +34,7 @@ export function createNoteInputCard() {
     "border-gray-200", // Sets the border color
     "hover:shadow-xl", // Enhances the shadow on hover
     "transition-shadow", // Smoothens the shadow change
-    "duration-200"
+    "duration-200",
   );
   const noteTitle = document.createElement("input");
   noteTitle.placeholder = "Enter Note Title";
@@ -50,7 +49,7 @@ export function createNoteInputCard() {
     "rounded-md", // Rounds the input corners
     "focus:outline-none", // Removes the blue outline on focus
     "focus:ring-2", // Adds a focus ring
-    "focus:ring-blue-400" // Sets the focus ring color
+    "focus:ring-blue-400", // Sets the focus ring color
   );
   const noteBody = document.createElement("textarea");
   noteBody.placeholder = "enter note contents";
@@ -66,7 +65,7 @@ export function createNoteInputCard() {
     "resize-none", // Prevents resizing to maintain consistency
     "focus:outline-none", // Removes the default blue outline on focus
     "focus:ring-2", // Adds a focus ring
-    "focus:ring-blue-400" // Sets the focus ring color
+    "focus:ring-blue-400", // Sets the focus ring color
   );
   const addnotesButton = document.createElement("button");
   addnotesButton.textContent = "Add Note";
@@ -82,7 +81,7 @@ export function createNoteInputCard() {
     "focus:ring-2", // Adds a focus ring
     "focus:ring-blue-400", // Sets the focus ring color
     "transition-colors", // Smoothens the color transition
-    "duration-200"
+    "duration-200",
   );
   addnotesButton.setAttribute("id", "addnotesButton");
   noteCard.appendChild(noteTitle);
@@ -95,5 +94,12 @@ export function createNoteInputCard() {
     notesHandler();
   });
 
-  return notesGrid
+  return notesGrid;
+}
+
+export function noteCardReset() {
+  const noteTitle = document.querySelector(".noteTitle");
+  const noteBody = document.querySelector(".noteBody");
+  noteTitle.value = "";
+  noteBody.value = "";
 }

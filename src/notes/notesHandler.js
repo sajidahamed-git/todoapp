@@ -1,6 +1,6 @@
 import { isArrayEmpty } from "..";
 import { noteRenderer } from "./notesRenderer";
-
+import { noteCardReset } from "./createInputCard";
 let notesArray = [];
 
 export function setNotesArray(arr) {
@@ -25,6 +25,7 @@ export function notesHandler() {
     const noteObject = createNotesObject(noteTitleValue, noteBodyValue);
     notesArray.push(noteObject);
     noteRenderer(noteObject);
+    noteCardReset()
     localStorage.setItem("notesArray", JSON.stringify(notesArray));
   }
 }
