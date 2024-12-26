@@ -1,11 +1,13 @@
 
 
 add overdue indicator if duedate is past
-
-add border to rendered notes
-
-add input validation for notes
 prevent user from entering one long word in add tasks form  
+
+clear note input contaniers after note is added
+
+<!-- add border to rendered notes -->
+
+<!-- add input validation for notes -->
 <!-- make the rendered projects button bigger - now it is only the size of the text -- and also curved edges -->
 <!-- make all the buttons in home pane also bigger -->
 <!-- check due this week functionality -- tasks without any date are rendered in due this week -->
