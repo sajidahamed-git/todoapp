@@ -1,5 +1,25 @@
 import "./styles.css";
+// Import the functions you need from the SDKs you need
+// import { initializeApp } from "firebase/app";
+// import { getAnalytics } from "firebase/analytics";
+// TODO: Add SDKs for Firebase products that you want to use
+// https://firebase.google.com/docs/web/setup#available-libraries
 
+// Your web app's Firebase configuration
+// For Firebase JS SDK v7.20.0 and later, measurementId is optional
+// const firebaseConfig = {
+//   apiKey: "AIzaSyBwB1E_0bpw1vapGQXcYK_pXzCZDundJ18",
+//   authDomain: "todo-app-0010.firebaseapp.com",
+//   projectId: "todo-app-0010",
+//   storageBucket: "todo-app-0010.firebasestorage.app",
+//   messagingSenderId: "368894203420",
+//   appId: "1:368894203420:web:684d7c97ba9acd94b031d9",
+//   measurementId: "G-FPRJDMEWTD"
+// };
+
+// Initialize Firebase
+// const app = initializeApp(firebaseConfig);
+// const analytics = getAnalytics(app);
 import { taskListeners } from "./tasks/taskListener";
 import { setTasksArray } from "./tasks/taskManager";
 import { renderAllTasks, renderTask } from "./tasks/taskRenderer";

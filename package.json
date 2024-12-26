@@ -25,6 +25,7 @@
     "webpack-dev-server": "^5.1.0"
   },
   "dependencies": {
-    "@formkit/auto-animate": "^0.8.2"
+    "@formkit/auto-animate": "^0.8.2",
+    "firebase": "^11.1.0"
   }
 }
