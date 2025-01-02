@@ -9,10 +9,13 @@ module.exports = {
     path: path.resolve(__dirname, "dist"),
     filename: "main.js",
     clean: true,
+    publicPath:'/'
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: "./src/template.html",
+      filename: 'app/index.html',  // The HTML file will be placed inside the "app" folder
+
     }),
   ],
   devtool: "eval-source-map",

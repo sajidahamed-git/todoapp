@@ -11,6 +11,11 @@
         "source": "/app{,/**}",
         "destination": "/index.html"
       }
+      ,
+    {
+      "source": "/app/main.js",
+      "destination": "/main.js"
+    }
     ]
   }
 }
