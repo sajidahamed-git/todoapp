@@ -1,25 +1,5 @@
 import "./styles.css";
-// Import the functions you need from the SDKs you need
-// import { initializeApp } from "firebase/app";
-// import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
-// const firebaseConfig = {
-//   apiKey: "AIzaSyBwB1E_0bpw1vapGQXcYK_pXzCZDundJ18",
-//   authDomain: "todo-app-0010.firebaseapp.com",
-//   projectId: "todo-app-0010",
-//   storageBucket: "todo-app-0010.firebasestorage.app",
-//   messagingSenderId: "368894203420",
-//   appId: "1:368894203420:web:684d7c97ba9acd94b031d9",
-//   measurementId: "G-FPRJDMEWTD"
-// };
-
-// Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
+import { onAuthStateChanged } from "firebase/auth";
 import { taskListeners } from "./tasks/taskListener";
 import { setTasksArray } from "./tasks/taskManager";
 import { renderAllTasks, renderTask } from "./tasks/taskRenderer";
@@ -33,14 +13,17 @@ import { projectRenderer } from "./projects/projectRenderer";
 import { createNoteInputCard } from "./notes/createInputCard";
 import { noteRenderer } from "./notes/notesRenderer";
 import { setNotesArray } from "./notes/notesHandler";
-import { highlightButton, menuVisibility } from "./ui-interactions/highlightButton";
-const burgerButton = document.getElementById('burgerButton')
+import {
+  highlightButton,
+  menuVisibility,
+} from "./ui-interactions/highlightButton";
+const burgerButton = document.getElementById("burgerButton");
 document.addEventListener("DOMContentLoaded", () => {
-  highlightButton('.allTasks')
+  highlightButton(".allTasks");
   renderAllTasks();
-  burgerButton.addEventListener('click',()=>{
-    menuVisibility()
-  })
+  burgerButton.addEventListener("click", () => {
+    menuVisibility();
+  });
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -72,9 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const notesBtn = document.querySelector(".notes");
-const addtasksbtn = document.querySelector('.addNewBtn')
+const addtasksbtn = document.querySelector(".addNewBtn");
 notesBtn.addEventListener("click", () => {
-  highlightButton('.notes')
+  highlightButton(".notes");
   createNoteInputCard();
   if (localStorage.getItem("notesArray")) {
     const tempNotesArray = JSON.parse(localStorage.getItem("notesArray"));
@@ -86,9 +69,28 @@ notesBtn.addEventListener("click", () => {
       });
     } else console.log("notes arr exists in local but is empty");
   } else console.log("notesarray does not exist in local");
-  addtasksbtn.classList.add('hidden')
+  addtasksbtn.classList.add("hidden");
 });
 
 export function isArrayEmpty(arr) {
   return arr.length === 0;
 }
+
+import { signInWithGoogle, signOutUser } from "./myAuth";
+
+const buttonText = document.querySelector(".buttonText");
+const loginButton = document.getElementById("loginButton");
+import { auth } from "./myAuth";
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log("user is signedin", user);
+    buttonText.textContent = "logout";
+    loginButton.removeEventListener("click", signInWithGoogle);
+    loginButton.addEventListener("click", signOutUser);
+  } else {
+    buttonText.textContent = "Sign in with Google";
+    console.log("no user signed in");
+    loginButton.removeEventListener("click", signOutUser);
+    loginButton.addEventListener("click", signInWithGoogle);
+  }
+});
