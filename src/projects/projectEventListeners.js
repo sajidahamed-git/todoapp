@@ -2,6 +2,7 @@ import { projectRenderer } from "./projectRenderer";
 import { renderTasksByProjectId } from "../tasks/taskRenderer";
 import { isArrayEmpty} from "..";
 import { removeAllHighlight } from "../ui-interactions/highlightButton";
+import { updateArrayindb } from "../firebase/db";
 let projectsArray = []
 
 export function setProjectsArray(arr){
@@ -30,14 +31,15 @@ export function projectEventListeners() {
     const projectObject = createProjectObject(projectName);
     projectRenderer(projectObject);
     projectsArray.push(projectObject);
-    localStorage.setItem('projectsArray',JSON.stringify(projectsArray))
+    // localStorage.setItem('projectsArray',JSON.stringify(projectsArray))
+    updateArrayindb('projects',projectsArray)
   });
 }
 //save project counter in local storate to get correct
 //project ids
 let projectCounter = 0;
 function createProjectObject(projectName) {
-  if (isArrayEmpty(projectsArray)) {
+  if (projectsArray.length ===0) {
     projectCounter = 0;
   } else {
     const lastProjectElement = projectsArray[projectsArray.length - 1];
@@ -60,7 +62,8 @@ export function projectDelbtnListener(delbtn, projectId) {
     }
     projectsArray = projectsArray.filter((projects) => projects.id !== projectId
     );
-    localStorage.setItem('projectsArray',JSON.stringify(projectsArray))
+    // localStorage.setItem('projectsArray',JSON.stringify(projectsArray))
+    updateArrayindb('projects',projectsArray)
   });
 }
 //populate project array in the popup dom of the addnote dialog box

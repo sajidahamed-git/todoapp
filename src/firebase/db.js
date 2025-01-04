@@ -12,44 +12,61 @@ import { getCurrentUserId, app } from "./myAuth";
 import { setTasksArray } from "../tasks/taskManager";
 import { isArrayEmpty } from "..";
 import { renderTask } from "../tasks/taskRenderer";
+import { setProjectsArray } from "../projects/projectEventListeners";
+import { projectRenderer } from "../projects/projectRenderer";
 const db = getFirestore(app);
 
 // one collection called users which has multiple
 // documents one for each user
 
-export async function updateArrayindb(field,value) {
+export async function updateArrayindb(field, value) {
   const userId = getCurrentUserId();
   try {
     const docRef = doc(db, "users", userId);
     await setDoc(
       docRef,
       {
-        [field]:value,
+        [field]: value,
       },
       { merge: true },
     );
     console.log("document writeed with ID:", docRef.id);
   } catch (error) {
-    console.log('user not logged in');
+    console.log("user not logged in");
     console.log(error);
   }
 }
 
-export async function fetchTasksArray() {
+export async function fetchArray(field) {
   const userId = getCurrentUserId();
   try {
     const docRef = doc(db, "users", userId);
     const docsnap = await getDoc(docRef);
+
     if (docsnap.exists()) {
-      const fetchedArray = docsnap.data().tasks;
-      setTasksArray(fetchedArray);
-      if (!isArrayEmpty(fetchedArray)) {
-        //array is loaded from local andis not empty
-        fetchedArray.forEach((element) => {
-          renderTask(element);
-        });
-      } else console.log("tasksArray  empty in cloud");
-    } else console.log("no such document");
+      const fetchedArray = docsnap.data()[field];
+      const hasdata = fetchedArray.length > 0 ? true : false;
+
+      if (field === "tasks") {
+        // console.log("tasks field");
+        setTasksArray(fetchedArray);
+        if (hasdata) {
+          fetchedArray.forEach((element) => {
+            renderTask(element);
+          });
+        }
+      }
+      if (field === "projects") {
+        // console.log("projects field");
+        setProjectsArray(fetchedArray);
+        if (hasdata) {
+          fetchedArray.forEach((element) => {
+            projectRenderer(element);
+          });
+        }
+      }
+    }
+    // console.log("no such document found");
   } catch (error) {
     console.log(error);
   }

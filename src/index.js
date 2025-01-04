@@ -3,7 +3,7 @@ import { onAuthStateChanged } from "firebase/auth";
 import { taskListeners } from "./tasks/taskListener";
 import { setTasksArray } from "./tasks/taskManager";
 import { renderAllTasks, renderTask } from "./tasks/taskRenderer";
-
+import { fetchArray } from "./firebase/db";
 import {
   projectEventListeners,
   setProjectsArray,
@@ -44,16 +44,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   projectEventListeners();
-  if (localStorage.getItem("projectsArray")) {
-    const tempProjectsArray = JSON.parse(localStorage.getItem("projectsArray"));
-    setProjectsArray(tempProjectsArray);
-    if (!isArrayEmpty(tempProjectsArray)) {
-      //array is loaded from local andis not empty
-      tempProjectsArray.forEach((element) => {
-        projectRenderer(element);
-      });
-    } else console.log("projectsArray exists in local but empty");
-  } else console.log("projectsArray does not exist in local");
+  // if (localStorage.getItem("projectsArray")) {
+    // const tempProjectsArray = JSON.parse(localStorage.getItem("projectsArray"));
+    // setProjectsArray(tempProjectsArray);
+    // if (!isArrayEmpty(tempProjectsArray)) {
+      // //array is loaded from local andis not empty
+      // tempProjectsArray.forEach((element) => {
+        // projectRenderer(element);
+      // });
+    // } else console.log("projectsArray exists in local but empty");
+  // } else console.log("projectsArray does not exist in local");
 });
 
 const notesBtn = document.querySelector(".notes");
@@ -85,12 +85,13 @@ import { auth } from "./firebase/myAuth";
 import { fetchTasksArray } from "./firebase/db";
 onAuthStateChanged(auth, (user) => {
   if (user) {
-    console.log("user is signedin", user);
-    console.log(user.uid);
+    // console.log("user is signedin", user);
+    // console.log(user.uid);
     loginButton.textContent = "Logout";
     loginButton.removeEventListener("click", signInWithGoogle);
     loginButton.addEventListener("click", signOutUser);
-    fetchTasksArray()
+    fetchArray('tasks')
+    fetchArray('projects')
   } else {
     loginButton.textContent = "Login";
     console.log("no user signed in");
