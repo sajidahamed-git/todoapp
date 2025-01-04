@@ -17,6 +17,8 @@ import {
   highlightButton,
   menuVisibility,
 } from "./ui-interactions/highlightButton";
+
+
 const burgerButton = document.getElementById("burgerButton");
 document.addEventListener("DOMContentLoaded", () => {
   highlightButton(".allTasks");
@@ -28,16 +30,16 @@ document.addEventListener("DOMContentLoaded", () => {
 
 document.addEventListener("DOMContentLoaded", () => {
   taskListeners();
-  if (localStorage.getItem("tasksArray")) {
-    const arr = JSON.parse(localStorage.getItem("tasksArray"));
-    setTasksArray(arr);
-    if (!isArrayEmpty(arr)) {
+  // if (localStorage.getItem("tasksArray")) {
+    // const arr = JSON.parse(localStorage.getItem("tasksArray"));
+    // setTasksArray(arr);
+    // if (!isArrayEmpty(arr)) {
       //array is loaded from local andis not empty
-      arr.forEach((element) => {
-        renderTask(element);
-      });
-    } else console.log("tasksArray exists in local but empty");
-  } else console.log("tasksArray does not exist in local");
+      // arr.forEach((element) => {
+        // renderTask(element);
+      // });
+    // } else console.log("tasksArray exists in local but empty");
+  // } else console.log("tasksArray does not exist in local");
 });
 
 document.addEventListener("DOMContentLoaded", () => {
@@ -80,20 +82,19 @@ import { signInWithGoogle, signOutUser } from "./firebase/myAuth";
 
 const loginButton = document.getElementById("loginButton");
 import { auth } from "./firebase/myAuth";
+import { fetchTasksArray } from "./firebase/db";
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("user is signedin", user);
+    console.log(user.uid);
     loginButton.textContent = "Logout";
     loginButton.removeEventListener("click", signInWithGoogle);
     loginButton.addEventListener("click", signOutUser);
-    // loginButton.classList.remove("bg-blue-400", "hover:bg-blue-600");
-    // loginButton.classList.add("bg-red-500", "hover:bg-red-600");
+    fetchTasksArray()
   } else {
     loginButton.textContent = "Login";
     console.log("no user signed in");
     loginButton.removeEventListener("click", signOutUser);
     loginButton.addEventListener("click", signInWithGoogle);
-    // loginButton.classList.remove("bg-red-500", "hover:bg-red-600");
-    // loginButton.classList.add("bg-blue-400", "hover:bg-blue-600");
   }
 });

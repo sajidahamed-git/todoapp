@@ -2,6 +2,7 @@ import { renderTask } from "./taskRenderer";
 import { isArrayEmpty } from "..";
 
 import autoAnimate from "@formkit/auto-animate";
+import { updateTasksArrayindb } from "../firebase/db";
 const taskContainer = document.querySelector(".notesContainer");
 autoAnimate(taskContainer)
 
@@ -30,7 +31,8 @@ export function formHandling() {
 
   tasksArray.push(taskObject);
   renderTask(taskObject);
-  localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+  // localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+  updateTasksArrayindb(tasksArray)
 }
 
 let taskIdCounter;
@@ -57,7 +59,8 @@ function createTaskObject(title, description, dueDate, projectId) {
 export function deleteButtonHandler(button, taskId) {
   tasksArray = tasksArray.filter((tasks) => tasks.id !== taskId);
 
-  localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+  // localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+  updateTasksArrayindb(tasksArray)
   const noteDiv = button.closest(".task");
   console.log(noteDiv);
   if (noteDiv) {
@@ -83,7 +86,8 @@ export function checkboxHandler(taskId, isChecked) {
       taskElement.classList.remove("line-through", "opacity-50");
     }
   }
-  localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+  // localStorage.setItem("tasksArray", JSON.stringify(tasksArray));
+  updateTasksArrayindb(tasksArray)
 }
 export function detailsButtonHandler(taskId) {
   let taskDetails = tasksArray[taskId].description;

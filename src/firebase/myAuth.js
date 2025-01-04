@@ -27,18 +27,18 @@ export async function signInWithGoogle() {
     const result = await signInWithPopup(auth, provider);
     const credential = GoogleAuthProvider.credentialFromResult(result);
     // This gives you a Google Access Token. You can use it to access the Google API.
-    const token = credential.accessToken;
+    // const token = credential.accessToken;
     // The signed-in user info.
-    const user = result.user;
-    console.log("user Info", user);
-    console.log("accessToken", token);
+    // const user = result.user;
+    // console.log("user Info", user);
+    // console.log("accessToken", token);
   } catch (error) {
     console.error(error);
     console.error(error.code);
     console.error(error.message);
   }
 }
-export async function signOutUser(params) {
+export async function signOutUser() {
   try {
     await signOut(auth);
     console.log("user signedout");
@@ -47,4 +47,13 @@ export async function signOutUser(params) {
   }
 }
 
-// firestore stuff 
+
+export function getCurrentUserId() {
+  const user = auth.currentUser;
+  if (user) {
+    return user.uid; // User's unique ID
+  } else {
+    console.log("No user is signed in.");
+    return null;
+  }
+}
