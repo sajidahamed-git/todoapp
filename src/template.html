@@ -7,25 +7,27 @@
     <title>To-Do App</title>
   </head>
   <body class="h-lvh sm:text-xl">
-    <div class="flexContainer flex flex-col sm:h-auto sm:flex-wrap sm:flex-row">
+    <div class="flexContainer flex flex-col sm:h-auto sm:flex-row sm:flex-wrap">
       <!-- one -->
-      <header class=" flex w-full items-center justify-center relative bg-blue-400 px-6 py-4 text-center text-2xl">
-        
-        <button class="burger absolute left-0 p-2" id="burgerButton"><img class="w-8" src="assets/menu.png" alt="" /></button>
+      <header
+        class="relative flex w-full items-center justify-center bg-blue-400 px-6 py-4 text-center text-2xl"
+      >
+        <button class="burger absolute left-0 p-2" id="burgerButton">
+          <img class="w-8" src="assets/menu.png" alt="" />
+        </button>
         <div class="flex-grow text-center">To-Do App</div>
 
-        <div class= "sm:px-8 max-w-md mx-auto">
-          <button id="loginButton" type="button" class="text-white w-full  bg-[#4285F4] hover:bg-[#4285F4]/90 focus:ring-4 focus:outline-none focus:ring-[#4285F4]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center justify-between mr-2 mb-2">
-            <svg class="mr-2 -ml-1 w-4 h-4" aria-hidden="true" focusable="false" data-prefix="fab" data-icon="google" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 488 512">
-              <path fill="currentColor" d="M488 261.8C488 403.3 391.1 504 248 504 110.8 504 0 393.2 0 256S110.8 8 248 8c66.8 0 123 24.5 166.3 64.9l-67.5 64.9C258.5 52.6 94.3 116.6 94.3 256c0 86.5 69.1 156.6 153.7 156.6 98.2 0 135-70.4 140.8-106.9H248v-85.3h236.1c2.3 12.7 3.9 24.9 3.9 41.4z">
-              </path>
-            </svg>
-            <span class="buttonText hidden sm:inline-block ml-2">Sing in with Google</span></button>
-      </div>
-
+        <div class="w-16 text-xl sm:w-24 sm:mr-8">
+          <button
+            id="loginButton"
+            type="button"
+            class="rounded-lg bg-blue-500 sm:px-8 p-2 sm:text-center">Login</button>
+        </div>
       </header>
       <!-- two -->
-      <div class="leftPane sm:h-svh sm:w-1/4 border-r-4 border-blue-500  sm:opacity-100 sm:visible transition-all">
+      <div
+        class="leftPane border-r-4 border-blue-500 transition-all sm:visible sm:h-svh sm:w-1/4 sm:opacity-100"
+      >
         <div
           class="home m-4 border-b-4 border-solid border-blue-400 px-4 py-2 text-2xl"
         >
@@ -67,7 +69,7 @@
           <div class="flex w-full justify-between gap-4">
             <!--  add new project input field and button -->
             <input
-              class="w-full rounded-md placeholder:text-center h-8 border-solid border-2 border-blue-400 p-4"
+              class="h-8 w-full rounded-md border-2 border-solid border-blue-400 p-4 placeholder:text-center"
               type="text"
               name="newProject"
               id="projectName"
@@ -77,14 +79,14 @@
               <img class="w-8" src="./assets/add-post.png" alt="" />
             </button>
           </div>
-          <div class="projectList w-full flex flex-col">
+          <div class="projectList flex w-full flex-col">
             <!-- projects dynamically added by js here -->
           </div>
         </div>
       </div>
       <!-- three -->
       <div class="rightPane sm:w-3/5">
-        <div class="notesContainer p-2 sm:p-4 text-xl sm:text-xl">
+        <div class="notesContainer p-2 text-xl sm:p-4 sm:text-xl">
           <!-- JS adds created notes here -->
         </div>
       </div>
@@ -93,7 +95,7 @@
     <!-- add task button -->
     <div class="buttonPane fixed bottom-10 right-6 sm:bottom-16 sm:right-40">
       <button class="addNewBtn">
-        <img class="sm:w-20 w-8" src="./assets/add-post.png" alt="dfddfdf" />
+        <img class="w-8 sm:w-20" src="./assets/add-post.png" alt="dfddfdf" />
       </button>
     </div>
     <!-- new todo popup -->

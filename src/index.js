@@ -78,17 +78,16 @@ export function isArrayEmpty(arr) {
 
 import { signInWithGoogle, signOutUser } from "./myAuth";
 
-const buttonText = document.querySelector(".buttonText");
 const loginButton = document.getElementById("loginButton");
 import { auth } from "./myAuth";
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("user is signedin", user);
-    buttonText.textContent = "logout";
+    loginButton.textContent = "Logout";
     loginButton.removeEventListener("click", signInWithGoogle);
     loginButton.addEventListener("click", signOutUser);
   } else {
-    buttonText.textContent = "Sign in with Google";
+    loginButton.textContent = "Login";
     console.log("no user signed in");
     loginButton.removeEventListener("click", signOutUser);
     loginButton.addEventListener("click", signInWithGoogle);
