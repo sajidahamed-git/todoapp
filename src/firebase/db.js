@@ -17,14 +17,14 @@ const db = getFirestore(app);
 // one collection called users which has multiple
 // documents one for each user
 
-export async function updateTasksArrayindb(tasksArray) {
+export async function updateArrayindb(field,value) {
   const userId = getCurrentUserId();
   try {
     const docRef = doc(db, "users", userId);
     await setDoc(
       docRef,
       {
-        tasks: tasksArray,
+        [field]:value,
       },
       { merge: true },
     );
