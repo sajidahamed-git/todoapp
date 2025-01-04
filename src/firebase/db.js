@@ -1,8 +1,5 @@
 import {
   getFirestore,
-  collection,
-  addDoc,
-  updateDoc,
   doc,
   setDoc,
   getDoc,
@@ -10,12 +7,10 @@ import {
 // Initialize Cloud Firestore and get a reference to the service
 import { getCurrentUserId, app } from "./myAuth";
 import { setTasksArray } from "../tasks/taskManager";
-import { isArrayEmpty } from "..";
 import { renderTask } from "../tasks/taskRenderer";
 import { setProjectsArray } from "../projects/projectEventListeners";
 import { projectRenderer } from "../projects/projectRenderer";
 import { setNotesArray } from "../notes/notesHandler";
-import { noteRenderer } from "../notes/notesRenderer";
 const db = getFirestore(app);
 
 // one collection called users which has multiple
@@ -49,7 +44,6 @@ export async function fetchArray(field) {
       const hasdata = fetchedArray.length > 0 ? true : false;
 
       if (field === "tasks") {
-        // console.log("tasks field");
         //setTasksArray puts the value of the fetched array where
         // it needs to be for the rest of the app to work
         setTasksArray(fetchedArray);
@@ -60,7 +54,6 @@ export async function fetchArray(field) {
         }
       }
       if (field === "projects") {
-        // console.log("projects field");
         setProjectsArray(fetchedArray);
         if (hasdata) {
           fetchedArray.forEach((element) => {
@@ -70,12 +63,8 @@ export async function fetchArray(field) {
       }
       if (field === 'notes') {
         setNotesArray(fetchedArray)
-        // if (hasdata) {
-          // fetchedArray.forEach((element) => {
-            // noteRenderer(element)
-          // // });
-        // }
-
+        // notes are rendered only when notes button click 
+        // so they are rendered in indexjs 
       }
     }
     // console.log("no such document found");

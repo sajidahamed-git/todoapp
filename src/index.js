@@ -1,23 +1,13 @@
 import "./styles.css";
 import { onAuthStateChanged } from "firebase/auth";
 import { taskListeners } from "./tasks/taskListener";
-import { setTasksArray } from "./tasks/taskManager";
-import { renderAllTasks, renderTask } from "./tasks/taskRenderer";
+import { renderAllTasks} from "./tasks/taskRenderer";
 import { fetchArray } from "./firebase/db";
-import { renderNotesaz } from "./notes/notesHandler";
-import {
-  projectEventListeners,
-  setProjectsArray,
-} from "./projects/projectEventListeners";
-import { projectRenderer } from "./projects/projectRenderer";
+import { renderFetchedNotes } from "./notes/notesHandler";
+import {projectEventListeners} from "./projects/projectEventListeners";
 
 import { createNoteInputCard } from "./notes/createInputCard";
-import { noteRenderer } from "./notes/notesRenderer";
-import { setNotesArray } from "./notes/notesHandler";
-import {
-  highlightButton,
-  menuVisibility,
-} from "./ui-interactions/highlightButton";
+import {highlightButton, menuVisibility,} from "./ui-interactions/highlightButton";
 
 
 const burgerButton = document.getElementById("burgerButton");
@@ -58,11 +48,10 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 const notesBtn = document.querySelector(".notes");
-const addtasksbtn = document.querySelector(".addNewBtn");
 notesBtn.addEventListener("click", () => {
   highlightButton(".notes");
   createNoteInputCard();
-  renderNotesaz()
+  renderFetchedNotes()
   // if (localStorage.getItem("notesArray")) {
     // const tempNotesArray = JSON.parse(localStorage.getItem("notesArray"));
     // setNotesArray(tempNotesArray);

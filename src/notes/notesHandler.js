@@ -57,7 +57,7 @@ export function removeDeletednote(id) {
 }
 
 
-export function renderNotesaz(){
+export function renderFetchedNotes(){
   notesArray.forEach(element => {
     noteRenderer(element)
   });
