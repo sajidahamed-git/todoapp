@@ -4,6 +4,7 @@ import { taskListeners } from "./tasks/taskListener";
 import { setTasksArray } from "./tasks/taskManager";
 import { renderAllTasks, renderTask } from "./tasks/taskRenderer";
 import { fetchArray } from "./firebase/db";
+import { renderNotesaz } from "./notes/notesHandler";
 import {
   projectEventListeners,
   setProjectsArray,
@@ -61,17 +62,18 @@ const addtasksbtn = document.querySelector(".addNewBtn");
 notesBtn.addEventListener("click", () => {
   highlightButton(".notes");
   createNoteInputCard();
-  if (localStorage.getItem("notesArray")) {
-    const tempNotesArray = JSON.parse(localStorage.getItem("notesArray"));
-    setNotesArray(tempNotesArray);
+  renderNotesaz()
+  // if (localStorage.getItem("notesArray")) {
+    // const tempNotesArray = JSON.parse(localStorage.getItem("notesArray"));
+    // setNotesArray(tempNotesArray);
     // setNotesArray(tempNotesArray)
-    if (!isArrayEmpty(tempNotesArray)) {
-      tempNotesArray.forEach((element) => {
-        noteRenderer(element);
-      });
-    } else console.log("notes arr exists in local but is empty");
-  } else console.log("notesarray does not exist in local");
-  addtasksbtn.classList.add("hidden");
+    // if (!isArrayEmpty(tempNotesArray)) {
+      // tempNotesArray.forEach((element) => {
+        // noteRenderer(element);
+      // });
+    // } else console.log("notes arr exists in local but is empty");
+  // } else console.log("notesarray does not exist in local");
+  // addtasksbtn.classList.add("hidden");
 });
 
 export function isArrayEmpty(arr) {
@@ -82,7 +84,6 @@ import { signInWithGoogle, signOutUser } from "./firebase/myAuth";
 
 const loginButton = document.getElementById("loginButton");
 import { auth } from "./firebase/myAuth";
-import { fetchTasksArray } from "./firebase/db";
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // console.log("user is signedin", user);
@@ -92,6 +93,7 @@ onAuthStateChanged(auth, (user) => {
     loginButton.addEventListener("click", signOutUser);
     fetchArray('tasks')
     fetchArray('projects')
+    fetchArray('notes')
   } else {
     loginButton.textContent = "Login";
     console.log("no user signed in");

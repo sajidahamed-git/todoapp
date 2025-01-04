@@ -1,6 +1,7 @@
 import { isArrayEmpty } from "..";
 import { noteRenderer } from "./notesRenderer";
 import { noteCardReset } from "./createInputCard";
+import { updateArrayindb } from "../firebase/db";
 let notesArray = [];
 
 export function setNotesArray(arr) {
@@ -26,7 +27,8 @@ export function notesHandler() {
     notesArray.push(noteObject);
     noteRenderer(noteObject);
     noteCardReset()
-    localStorage.setItem("notesArray", JSON.stringify(notesArray));
+    // localStorage.setItem("notesArray", JSON.stringify(notesArray));
+    updateArrayindb('notes',notesArray)
   }
 }
 
@@ -50,5 +52,13 @@ function createNotesObject(title, body) {
 
 export function removeDeletednote(id) {
   notesArray = notesArray.filter((note) => note.id != id);
-  localStorage.setItem("notesArray", JSON.stringify(notesArray));
+  // localStorage.setItem("notesArray", JSON.stringify(notesArray));
+  updateArrayindb('notes',notesArray)
+}
+
+
+export function renderNotesaz(){
+  notesArray.forEach(element => {
+    noteRenderer(element)
+  });
 }
