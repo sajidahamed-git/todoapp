@@ -76,20 +76,24 @@ export function isArrayEmpty(arr) {
   return arr.length === 0;
 }
 
-import { signInWithGoogle, signOutUser } from "./myAuth";
+import { signInWithGoogle, signOutUser } from "./firebase/myAuth";
 
 const loginButton = document.getElementById("loginButton");
-import { auth } from "./myAuth";
+import { auth } from "./firebase/myAuth";
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log("user is signedin", user);
     loginButton.textContent = "Logout";
     loginButton.removeEventListener("click", signInWithGoogle);
     loginButton.addEventListener("click", signOutUser);
+    // loginButton.classList.remove("bg-blue-400", "hover:bg-blue-600");
+    // loginButton.classList.add("bg-red-500", "hover:bg-red-600");
   } else {
     loginButton.textContent = "Login";
     console.log("no user signed in");
     loginButton.removeEventListener("click", signOutUser);
     loginButton.addEventListener("click", signInWithGoogle);
+    // loginButton.classList.remove("bg-red-500", "hover:bg-red-600");
+    // loginButton.classList.add("bg-blue-400", "hover:bg-blue-600");
   }
 });
