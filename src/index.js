@@ -47,6 +47,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // } else console.log("projectsArray does not exist in local");
 });
 
+  const addNewBtn = document.querySelector(".addNewBtn");
 const notesBtn = document.querySelector(".notes");
 notesBtn.addEventListener("click", () => {
   highlightButton(".notes");
@@ -62,7 +63,7 @@ notesBtn.addEventListener("click", () => {
       // });
     // } else console.log("notes arr exists in local but is empty");
   // } else console.log("notesarray does not exist in local");
-  // addtasksbtn.classList.add("hidden");
+  addNewBtn.classList.add("hidden");
 });
 
 export function isArrayEmpty(arr) {
